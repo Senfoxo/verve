@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pandabuy Spreadsheet By Jisll</title>
+    <style>
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+        :root {
+            --background-color: #18181B;
+            --text-color: #A1A1AA;
+            --card-background-color: rgba(255, 255, 255, .015);
+            --card-border-color: rgba(255, 255, 255, 0.1);
+            --card-box-shadow-1: rgba(0, 0, 0, 0.05);
+            --card-box-shadow-1-y: 3px;
+            --card-box-shadow-1-blur: 6px;
+            --card-box-shadow-2: rgba(0, 0, 0, 0.1);
+            --card-box-shadow-2-y: 8px;
+            --card-box-shadow-2-blur: 15px;
+            --card-label-color: #FFFFFF;
+            --card-shine-opacity: .1;
+            --card-shine-gradient: conic-gradient(from 205deg at 50% 50%, rgba(136, 136, 136, 0) 0deg, #ffffff 25deg, rgba(52, 211, 153, 0.18) 295deg, rgba(175, 175, 175, 0) 360deg);
+            --card-line-color: #2A2B2C;
+            --card-tile-color: rgba(184, 184, 184, 0.05);
+            --card-hover-border-color: rgba(255, 255, 255, 0.2);
+            --card-hover-box-shadow-1: rgba(0, 0, 0, 0.04);
+            --card-hover-box-shadow-1-y: 5px;
+            --card-hover-box-shadow-1-blur: 10px;
+            --card-hover-box-shadow-2: rgba(0, 0, 0, 0.3);
+            --card-hover-box-shadow-2-y: 15px;
+            --card-hover-box-shadow-2-blur: 25px;
+            --blur-opacity: .01;
+            --mouse-x: 0px;
+            --mouse-y: 0px;
+        }
+        .custom-cursor {
+            position: fixed;
+            top: var(--mouse-y);
+            left: var(--mouse-x);
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: top 0.1s ease-in-out, left 0.1s ease-in-out;
+        }
+        .cursor-point {
+            width: 5px;
+            height: 5px;
+            background-color: #ffffff;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .cursor-border {
+            width: 20px;
+            height: 20px;
+            background-color: #ffffff44;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: #fff;
+            cursor: none;
+        }
+        header {
+            background-color: #1f1f1f;
+            padding: 20px;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 999;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul li {
+            margin: 0 10px;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        nav ul li a:hover {
+            background-color: #333;
+        }
+        main {
+            display: flex;
+            justify-content: center;
+            padding-top: 80px;
+        }
+        .content {
+            max-width: 100%;
+            padding: 20px 0;
+        }
+        .list-section {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        .list-section h2 {
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 30px;
+        }
+        .list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            list-style-type: none;
+            padding: 0;
+        }
+        .list li {
+            background-color: var(--background-color);
+            box-shadow: 0px var(--card-box-shadow-1-y) var(--card-box-shadow-1-blur) var(--card-box-shadow-1), 0px var(--card-box-shadow-2-y) var(--card-box-shadow-2-blur) var(--card-box-shadow-2), 0 0 0 1px var(--card-border-color);
+            padding: 26px;
+            border-radius: 15px;
+            cursor: pointer;
+            position: relative;
+            transition: box-shadow .25s;
+            width: calc(16.66% - 20px);
+            margin: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .list li::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 15px;
+            background-color: var(--card-background-color);
+        }
+        .list li img {
+            width: 70%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            z-index: 3;
+        }
+        .list li h3 {
+            z-index: 2;
+            position: relative;
+            margin: 12px 0 4px 0;
+            font-family: inherit;
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 2;
+            color: var(--card-label-color);
+        }
+        .list li p {
+            z-index: 2;
+            position: relative;
+            margin: 0;
+            font-size: 14px;
+            line-height: 1.7;
+            color: var(--text-color);
+        }
+        .list li .shine {
+            border-radius: inherit;
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            overflow: hidden;
+            opacity: 0;
+            transition: opacity .5s;
+        }
+        .list li .shine:before {
+            content: '';
+            width: 150%;
+            padding-bottom: 150%;
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            bottom: 55%;
+            filter: blur(35px);
+            opacity: var(--card-shine-opacity);
+            transform: translateX(-50%);
+            background-image: var(--card-shine-gradient);
+        }
+        .list li .background {
+            border-radius: inherit;
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            -webkit-mask-image: radial-gradient(circle at 60% 5%, black 0%, black 15%, transparent 60%);
+            mask-image: radial-gradient(circle at 60% 5%, black 0%, black 15%, transparent 60%);
+        }
+        .list li .background .tiles {
+            opacity: 0;
+            transition: opacity .25s;
+        }
+        .list li .background .tiles .tile {
+            position: absolute;
+            background-color: var(--card-tile-color);
+            animation-duration: 8s;
+            animation-iteration-count: infinite;
+            opacity: 0;
+        }
+        .list li .background .tiles .tile.tile-4,
+        .list li .background .tiles .tile.tile-6,
+        .list li .background .tiles .tile.tile-10 {
+            animation-delay: -2s;
+        }
+        .list li .background .tiles .tile.tile-3,
+        .list li .background .tiles .tile.tile-5,
+        .list li .background .tiles .tile.tile-8 {
+            animation-delay: -4s;
+        }
+        .list li .background .tiles .tile.tile-2,
+        .list li .background .tiles .tile.tile-9 {
+            animation-delay: -6s;
+        }
+        .list li .background .tiles .tile.tile-1 {
+            top: 0;
+            left: 0;
+            height: 10%;
+            width: 22.5%;
+        }
+        .list li .background .tiles .tile.tile-2 {
+            top: 0;
+            left: 22.5%;
+            height: 10%;
+            width: 27.5%;
+        }
+        .list li .background .tiles .tile.tile-3 {
+            top: 0;
+            left: 50%;
+            height: 10%;
+            width: 27.5%;
+        }
+        .list li .background .tiles .tile.tile-4 {
+            top: 0;
+            left: 77.5%;
+            height: 10%;
+            width: 22.5%;
+        }
+        .list li .background .tiles .tile.tile-5 {
+            top: 10%;
+            left: 0;
+            height: 22.5%;
+            width: 22.5%;
+        }
+        .list li .background .tiles .tile.tile-6 {
+            top: 10%;
+            left: 22.5%;
+            height: 22.5%;
+            width: 27.5%;
+        }
+        .list li .background .tiles .tile.tile-7 {
+            top: 10%;
+            left: 50%;
+            height: 22.5%;
+            width: 27.5%;
+        }
+        .list li .background .tiles .tile.tile-8 {
+            top: 10%;
+            left: 77.5%;
+            height: 22.5%;
+            width: 22.5%;
+        }
+        .list li .background .tiles .tile.tile-9 {
+            top: 32.5%;
+            left: 50%;
+            height: 22.5%;
+            width: 27.5%;
+        }
+        .list li .background .tiles .tile.tile-10 {
+            top: 32.5%;
+            left: 77.5%;
+            height: 22.5%;
+            width: 22.5%;
+        }
+        @keyframes tile {
+            0%,
+            12.5%,
+            100% {
+                opacity: 1;
+            }
+            25%,
+            82.5% {
+                opacity: 0;
+            }
+        }
+        .list li .background .line {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transition: opacity .35s;
+        }
+        .list li .background .line:before,
+        .list li .background .line:after {
+            content: '';
+            position: absolute;
+            background-color: var(--card-line-color);
+            transition: transform .35s;
+        }
+        .list li .background .line:before {
+            left: 0;
+            right: 0;
+            height: 1px;
+            transform-origin: 0 50%;
+            transform: scaleX(0);
+        }
+        .list li .background .line:after {
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            transform-origin: 50% 0;
+            transform: scaleY(0);
+        }
+        .list li .background .line.line-1:before {
+            top: 10%;
+        }
+        .list li .background .line.line-1:after {
+            left: 22.5%;
+        }
+        .list li .background .line.line-1:before,
+        .list li .background .line.line-1:after {
+            transition-delay: .3s;
+        }
+        .list li .background .line.line-2:before {
+            top: 32.5%;
+        }
+        .list li .background .line.line-2:after {
+            left: 50%;
+        }
+        .list li .background .line.line-2:before,
+        .list li .background .line.line-2:after {
+            transition-delay: .15s;
+        }
+        .list li .background .line.line-3:before {
+            top: 55%;
+        }
+        .list li .background .line.line-3:after {
+            right: 22.5%;
+        }
+        .list li:hover {
+            box-shadow: 0px 3px 6px var(--card-hover-box-shadow-1), 0px var(--card-hover-box-shadow-2-y) var(--card-hover-box-shadow-2-blur) var(--card-hover-box-shadow-2), 0 0 0 1px var(--card-hover-border-color);
+        }
+        .list li:hover .shine {
+            opacity: 1;
+            transition-duration: .5s;
+            transition-delay: 0s;
+        }
+        .list li:hover .background .tiles {
+            opacity: 1;
+            transition-delay: .25s;
+        }
+        .list li:hover .background .tiles .tile {
+            animation-name: tile;
+        }
+        .list li:hover .background .line {
+            opacity: 1;
+            transition-duration: .15s;
+        }
+        .list li:hover .background .line:before {
+            transform: scaleX(1);
+        }
+        .list li:hover .background .line:after {
+            transform: scaleY(1);
+        }
+        .list li:hover .background .line.line-1:before,
+        .list li:hover .background .line.line-1:after {
+            transition-delay: .0s;
+        }
+        .list li:hover .background .line.line-2:before,
+        .list li:hover .background .line.line-2:after {
+            transition-delay: .15s;
+        }
+        .list li:hover .background .line.line-3:before,
+        .list li:hover .background .line.line-3:after {
+            transition-delay: .3s;
+        }
+        .day-night {
+            cursor: pointer;
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            opacity: .3;
+        }
+        .day-night input {
+            display: none;
+        }
+        .day-night input+div {
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            position: relative;
+            box-shadow: inset 8px -8px 0 0 var(--text-color);
+            transform: scale(1) rotate(-2deg);
+            transition: box-shadow .5s ease 0s, transform .4s ease .1s;
+        }
+        .day-night input+div:before {
+            content: '';
+            width: inherit;
+            height: inherit;
+            border-radius: inherit;
+            position: absolute;
+            left: 0;
+            top: 0;
+            transition: background-color .3s ease;
+        }
+        .day-night input+div:after {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            margin: -3px 0 0 -3px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            box-shadow: 0 -23px 0 var(--text-color), 0 23px 0 var(--text-color), 23px 0 0 var(--text-color), -23px 0 0 var(--text-color), 15px 15px 0 var(--text-color), -15px 15px 0 var(--text-color), 15px -15px 0 var(--text-color), -15px -15px 0 var(--text-color);
+            transform: scale(0);
+            transition: all .3s ease;
+        }
+        .day-night input:checked+div {
+            box-shadow: inset 20px -20px 0 0 var(--text-color);
+            transform: scale(.5) rotate(0deg);
+            transition: transform .3s ease .1s, box-shadow .2s ease 0s;
+        }
+        .day-night input:checked+div:before {
+            background: var(--text-color);
+            transition: background-color .3s ease .1s;
+        }
+        .day-night input:checked+div:after {
+            transform: scale(1);
+            transition: transform .5s ease .15s;
+        }
+        html {
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+        }
+        * {
+            box-sizing: inherit;
+            cursor: none;
+        }
+        *:before,
+        *:after {
+            box-sizing: inherit;
+        }
+        body {
+            min-height: 100vh;
+            display: flex;
+            font-family: 'Inter', Arial;
+            justify-content: center;
+            align-items: center;
+            background-color: var(--background-color);
+            overflow-y: visible;
+            overflow-x: hidden;
+        }
+        body:before {
+            content: '';
+            position: absolute;
+            inset: 0 -60% 65% -60%;
+            background-image: radial-gradient(ellipse at top, #ffffff 0%, var(--background-color) 50%);
+            opacity: var(--blur-opacity);
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 240px);
+            grid-gap: 32px;
+            position: relative;
+            z-index: 1;
+        }
+        .card {
+            background-color: var(--background-color);
+            box-shadow: 0px var(--card-box-shadow-1-y) var(--card-box-shadow-1-blur) var(--card-box-shadow-1), 0px var(--card-box-shadow-2-y) var(--card-box-shadow-2-blur) var(--card-box-shadow-2), 0 0 0 1px var(--card-border-color);
+            padding: 56px 16px 16px 16px;
+            border-radius: 15px;
+            cursor: pointer;
+            position: relative;
+            transition: box-shadow .25s;
+        }
+        .card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 15px;
+            background-color: var(--card-background-color);
+        }
+        .card h4 {
+            z-index: 2;
+            position: relative;
+            margin: 12px 0 4px 0;
+            font-family: inherit;
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 2;
+            color: var(--card-label-color);
+        }
+        .card p {
+            z-index: 2;
+            position: relative;
+            margin: 0;
+            font-size: 14px;
+            line-height: 1.7;
+            color: var(--text-color);
+        }
+        .card .shine {
+            border-radius: inherit;
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            overflow: hidden;
+            opacity: 0;
+            transition: opacity .5s;
+        }
+        .card .shine:before {
+            content: '';
+            width: 150%;
+            padding-bottom: 150%;
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            bottom: 55%;
+            filter: blur(35px);
+            opacity: var(--card-shine-opacity);
+            transform: translateX(-50%);
+            background-image: var(--card-shine-gradient);
+        }
+        .card .background {
+            border-radius: inherit;
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            -webkit-mask-image: radial-gradient(circle at 60% 5%, black 0%, black 15%, transparent 60%);
+            mask-image: radial-gradient(circle at 60% 5%, black 0%, black 15%, transparent 60%);
+        }
+        .card .background .tiles {
+            opacity: 0;
+            transition: opacity .25s;
+        }
+        .card .background .tiles .tile {
+            position: absolute;
+            background-color: var(--card-tile-color);
+            animation-duration: 8s;
+            animation-iteration-count: infinite;
+            opacity: 0;
+        }
+        .card .background .tiles .tile.tile-4,
+        .card .background .tiles .tile.tile-6,
+        .card .background .tiles .tile.tile-10 {
+            animation-delay: -2s;
+        }
+        .card .background .tiles .tile.tile-3,
+        .card .background .tiles .tile.tile-5,
+        .card .background .tiles .tile.tile-8 {
+            animation-delay: -4s;
+        }
+        .card .background .tiles .tile.tile-2,
+        .card .background .tiles .tile.tile-9 {
+            animation-delay: -6s;
+        }
+        .card .background .tiles .tile.tile-1 {
+            top: 0;
+            left: 0;
+            height: 10%;
+            width: 22.5%;
+        }
+        .card .background .tiles .tile.tile-2 {
+            top: 0;
+            left: 22.5%;
+            height: 10%;
+            width: 27.5%;
+        }
+        .card .background .tiles .tile.tile-3 {
+            top: 0;
+            left: 50%;
+            height: 10%;
+            width: 27.5%;
+        }
+        .card .background .tiles .tile.tile-4 {
+            top: 0;
+            left: 77.5%;
+            height: 10%;
+            width: 22.5%;
+        }
+        .card .background .tiles .tile.tile-5 {
+            top: 10%;
+            left: 0;
+            height: 22.5%;
+            width: 22.5%;
+        }
+        .card .background .tiles .tile.tile-6 {
+            top: 10%;
+            left: 22.5%;
+            height: 22.5%;
+            width: 27.5%;
+        }
+        .card .background .tiles .tile.tile-7 {
+            top: 10%;
+            left: 50%;
+            height: 22.5%;
+            width: 27.5%;
+        }
+        .card .background .tiles .tile.tile-8 {
+            top: 10%;
+            left: 77.5%;
+            height: 22.5%;
+            width: 22.5%;
+        }
+        .card .background .tiles .tile.tile-9 {
+            top: 32.5%;
+            left: 50%;
+            height: 22.5%;
+            width: 27.5%;
+        }
+        .card .background .tiles .tile.tile-10 {
+            top: 32.5%;
+            left: 77.5%;
+            height: 22.5%;
+            width: 22.5%;
+        }
+        @keyframes tile {
+            0%,
+            12.5%,
+            100% {
+                opacity: 1;
+            }
+            25%,
+            82.5% {
+                opacity: 0;
+            }
+        }
+        .card .background .line {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transition: opacity .35s;
+        }
+        .card .background .line:before,
+        .card .background .line:after {
+            content: '';
+            position: absolute;
+            background-color: var(--card-line-color);
+            transition: transform .35s;
+        }
+        .card .background .line:before {
+            left: 0;
+            right: 0;
+            height: 1px;
+            transform-origin: 0 50%;
+            transform: scaleX(0);
+        }
+        .card .background .line:after {
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            transform-origin: 50% 0;
+            transform: scaleY(0);
+        }
+        .card .background .line.line-1:before {
+            top: 10%;
+        }
+        .card .background .line.line-1:after {
+            left: 22.5%;
+        }
+        .card .background .line.line-1:before,
+        .card .background .line.line-1:after {
+            transition-delay: .3s;
+        }
+        .card .background .line.line-2:before {
+            top: 32.5%;
+        }
+        .card .background .line.line-2:after {
+            left: 50%;
+        }
+        .card .background .line.line-2:before,
+        .card .background .line.line-2:after {
+            transition-delay: .15s;
+        }
+        .card .background .line.line-3:before {
+            top: 55%;
+        }
+        .card .background .line.line-3:after {
+            right: 22.5%;
+        }
+        .card:hover {
+            box-shadow: 0px 3px 6px var(--card-hover-box-shadow-1), 0px var(--card-hover-box-shadow-2-y) var(--card-hover-box-shadow-2-blur) var(--card-hover-box-shadow-2), 0 0 0 1px var(--card-hover-border-color);
+        }
+        .card:hover .shine {
+            opacity: 1;
+            transition-duration: .5s;
+            transition-delay: 0s;
+        }
+        .card:hover .background .tiles {
+            opacity: 1;
+            transition-delay: .25s;
+        }
+        .card:hover .background .tiles .tile {
+            animation-name: tile;
+        }
+        .card:hover .background .line {
+            opacity: 1;
+            transition-duration: .15s;
+        }
+        .card:hover .background .line:before {
+            transform: scaleX(1);
+        }
+        .card:hover .background .line:after {
+            transform: scaleY(1);
+        }
+        .card:hover .background .line.line-1:before,
+        .card:hover .background .line.line-1:after {
+            transition-delay: .0s;
+        }
+        .card:hover .background .line.line-2:before,
+        .card:hover .background .line.line-2:after {
+            transition-delay: .15s;
+        }
+        .card:hover .background .line.line-3:before,
+        .card:hover .background .line.line-3:after {
+            transition-delay: .3s;
+        }
+        .btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            color: #000000;
+            background-color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            text-align: center;
+            transition: background-color 0.3s ease;
+            z-index: 3;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .btn:hover {
+            background-color: #c5c5c5;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#shoe"></i>Shoe</a></li>
+                <li><a href="#pants"></i>Pants</a></li>
+                <li><a href="#jackets"></i>Jackets</a></li>
+                <li><a href="#hoodies"></i>Hoodies</a></li>
+                <li><a href="#t-shirts"></i>T-Shirts</a></li>
+                <li><a href="#jewelry"></i>Jewelry</a></li>
+                <li><a href="#sport"></i>Sport</a></li>
+                <li><a href="#seller"></i>Seller</a></li>
+                <li><a href="#outfit"></i>Outfit</a></li>
+                <li><a href="#watches"></i>Watches</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="content">
+            <section id="clothing" class="list-section">
+                <h2>Verve Spreadsheet</h2>
+                <h5>Hello! We’re in BETA, adding new products daily.</h5>
+                <h5>The current product count is displayed below, including today’s additions. </h5>
+                <h5>Products on this Website: 13</h5>
+                <ul class="list"></ul>
+            </section>
+            <section id="shoe" class="list-section">
+                <h2>Shoe</h2>
+                <ul class="list"></ul>
+            </section>
+            <section id="pants" class="list-section">
+                <h2>Pants</h2>
+                <ul class="list"></ul>
+            </section>
+            <section id="jackets" class="list-section">
+                <h2>Jackets</h2>
+                <ul class="list"></ul>
+            </section>
+            <section id="hoodies" class="list-section">
+                <h2>Hoodies</h2>
+                <ul class="list"></ul>
+            </section>
+            <section id="t-shirts" class="list-section">
+                <h2>T-Shirts</h2>
+                <ul class="list"></ul>
+            </section>
+            <section id="jewelry" class="list-section">
+                <h2>Jewelry</h2>
+                <ul class="list"></ul>
+            </section>
+            <section id="sport" class="list-section">
+                <h2>Sport</h2>
+                <ul class="list"></ul>
+            </section>
+            <section id="seller" class="list-section">
+                <h2>Seller</h2>
+                <ul class="list"></ul>
+            </section>
+            <section id="outfit" class="list-section">
+                <h2>Outfit</h2>
+                <ul class="list"></ul>
+            </section>
+            <section id="watches" class="list-section">
+                <h2>Watches</h2>
+                <ul class="list"></ul>
+            </section>
+        </div>
+    </main>
+    <div class="custom-cursor">
+        <div class="cursor-point"></div>
+        <div class="cursor-border"></div>
+    </div>
+    <script>
+        const data = [
+            // Shoes
+            {
+                category: 'shoe',
+                name: 'Jordan 4 Retro (TS Cactus Jack)',
+                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226276759201251419/Jordan_4_Retro_TS_Cactus_Jack.png?ex=66242e3a&is=6611b93a&hm=68628d71c294bc306f88e97dfb8843ff3ee6469bf9e4110e5a7dcea8aab48815&',
+                price: '62.76€',
+                qcPictures: 'https://qc.pandabuy.com/qc?g=6513871406&s=107431519749&t=0',
+                buyLink: 'https://www.pandabuy.com/product?ra=224&url=PJ5u5VO1l8K3W0N%252B%252BNUxRLtlHuiuLG2fk9yHJbeI%252B8Tc9lCRLqK7K8iW%252BBZs2ae9Ot32XhfjHMPjtpbV60lXjsvnarurFX%252BcDiHlBg%253D%253D&utm_source=url&utm_medium=pdb&utm_campaign=normal&inviteCode=82V6R94BY'
+            },
+            {
+                category: 'shoe',
+                name: 'Jordan 4 Retro (Kaws)',
+                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226277595629223988/kaws.png?ex=66242f01&is=6611ba01&hm=c1903203a38bda71cf5761cb43b7411542e0cd41206126a3496524a9245b0b32&',
+                price: '72.52€',
+                qcPictures: 'https://qc.pandabuy.com/qc?g=6275046541&s=100958174505&t=0',
+                buyLink: 'https://www.pandabuy.com/product?url=PJ1cr632Oq2sti2KK8XMBGbKaiRF8Tn7da%252FAjo9g%252BJDL3Zn4CvWvHiHI%252F9z%252Fg%252FGUwmk9SKwCT2zYavoKPNdBe08cBwfsf6jUOu0m9g%253D%253D&spider_token=4572&inviteCode=82V6R94BY'
+            },
+            {
+                category: 'shoe',
+                name: 'Jordan 4 Retro (Black Cat)',
+                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226279690419835021/blackcats.png?ex=662430f5&is=6611bbf5&hm=093fb76e983c87e31cd485e273ca15ce51e39e7df8bbb5a89f239919ac415de0&',
+                price: '59.97€',
+                qcPictures: 'https://qc.pandabuy.com/qc?g=6478477266&s=105185496995&t=0',
+                buyLink: 'https://www.pandabuy.com/product?url=PJ3u4H8fWzRK8ELBSIKDA9qocTaGu1lLc6%252BIS2%252BOfMOrI8NB7XL7uarLSskKrPqqyFxm%252BIb1jzR5yHTuaoxuu0I4uzoECKhDKMtnsQ%253D%253D&spider_token=4572&inviteCode=82V6R94BY'
+            },
+            {
+                category: 'shoe',
+                name: 'Jordan 1 Retro High (TS Mocha)',
+                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226280782679638067/mocha.png?ex=662431f9&is=6611bcf9&hm=9c0c5db4f196858aa351ed4e02941c66f1cb3e24be27bc63dfbe2c3244495dba&',
+                price: '66.94€',
+                qcPictures: 'https://qc.pandabuy.com/qc?g=6839994224&s=113408321429&t=0',
+                buyLink: 'https://www.pandabuy.com/product?ra=248&url=PJ1krzD2Oq2sti2KAP1jpkhDxfRwIieCsntrzd%252BDHhIUHtGci3OUP6SUPnpZ6rbTonxl5SgBxxQDB8G%252BfpCMUTWaGmY9hnXbI1ys7g%253D%253D&utm_source=url&utm_medium=pdb&utm_campaign=normal'
+            },
+            {
+                category: 'shoe',
+                name: 'Jordan 1 Retro High (Off-White)',
+                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226281930404663377/offwhite.png?ex=6624330b&is=6611be0b&hm=4e7cb5b6f3027b2c28e036a78e51ad9c3a62a81d8f5844ac388d26ceb50e065f&',
+                price: '72.52€',
+                qcPictures: 'https://qc.pandabuy.com/qc?g=6839994224&s=113408321417&t=0',
+                buyLink: 'https://www.pandabuy.com/product?ra=228&url=PJ8zvyWKZSzUDdqVSeCEbFaBedbvuLlLIrqJ1Ww4B3x3g1qi7OXlfyjsdb9aL44mzR7Afd5ZbetR%252F55wmFk9Ao1ZONgluSQpe4dlNw%253D%253D&utm_source=url&utm_medium=pdb&utm_campaign=normal'
+            },
+            {
+                category: 'shoe',
+                name: 'Jordan 1 Retro High (Chicago)',
+                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226282940871344179/chicago.png?ex=662433fc&is=6611befc&hm=5d1af0fe1ddf62c3f1f81060410c5c1cfb44f3e2789176a5293e3b8d0f08e2e0&',
+                price: '72.52€',
+                qcPictures: 'https://qc.pandabuy.com/qc?g=6839994224&s=113408485368&t=0',
+                buyLink: 'https://www.pandabuy.com/product?ra=516&url=PJ9xmDFVd3v76X1twq%252FYA4egaX1sb5%252Bo6HzoDmJNesbmKKb9YKgOjNXYjU9rIBQexYz3SmukqYKkN7l7lBYBjvtCOET0XuFKktd7nw%253D%253D&utm_source=url&utm_medium=pdb&utm_campaign=normal'
+            },
+            {
+                category: 'shoe',
+                name: 'Jordan 1 Mid (Chicago)',
+                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226285025222201374/lgsmokegray.png?ex=662435ed&is=6611c0ed&hm=8ec688b35b488e12e68bd5bd7328ec2682b83a6a477afdf6389e439b12045192&',
+                price: '47.42€',
+                qcPictures: 'https://qc.pandabuy.com/qc?g=6468104033&s=104952918757&t=0',
+                buyLink: 'https://www.pandabuy.com/product?url=https%3A%2F%2Fweidian.com%2Fitem.html%3FitemID%3D6468104033%26spider_token%3D4572&utm_source=sto&utm_medium=pdb&utm_campaign=normal&inviteCode=82V6R94BY'
+            },
+            {
+                category: 'shoe',
+                name: 'Jordan 1 Mid (Pine Green)',
+                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226286263460692059/pinegreen.png?ex=66243714&is=6611c214&hm=566080053c76dae5755218c089df793d0f1c9f1a1a34fb4f695f8c58c0db254a&',
+                price: '44.63€',
+                qcPictures: 'https://qc.pandabuy.com/qc?g=5048079891&s=67802797140&t=0',
+                buyLink: 'https://www.pandabuy.com/product?url=https%3A%2F%2Fweidian.com%2Fitem.html%3FitemID%3D5048079891%26spider_token%3D4572&utm_source=sto&utm_medium=pdb&utm_campaign=normal&inviteCode=82V6R94BY'
+            },
+            {
+                category: 'shoe',
+                name: 'Jordan 1 Mid (Paint Drip)',
+                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226286976546902036/drippaint.png?ex=662437be&is=6611c2be&hm=43aef1093b1acec4c1762748a68d684a960c7113940a2e89a8430463f79d59e0&',
+                price: '44.63€',
+                qcPictures: 'https://qc.pandabuy.com/qc?g=5048886374&s=67800861934&t=0',
+                buyLink: 'https://www.pandabuy.com/product?url=https%3A%2F%2Fweidian.com%2Fitem.html%3FitemID%3D5048886374%26spider_token%3D4572&utm_source=sto&utm_medium=pdb&utm_campaign=normal&inviteCode=82V6R94BY'
+            },
+            {
+                category: 'shoe',
+                name: 'Jordan 1 Retro Low (TS Mocha)',
+                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226287703763714048/tsmocha.png?ex=6624386b&is=6611c36b&hm=aa9cfe9c932450d897c2bcd42eb648183f35968f86456e047c619d96b6ac2e60&',
+                price: '57.18€',
+                qcPictures: 'https://qc.pandabuy.com/qc?g=6265837195&s=99727838121&t=0',
+                buyLink: 'https://www.pandabuy.com/product?url=https%3A%2F%2Fweidian.com%2Fitem.html%3FitemID%3D6265837195%26spider_token%3D4572&spider_token=4572&inviteCode=82V6R94BY'
+            },
+            {
+                category: 'shoe',
+                name: 'Jordan 1 Retro Low (Bl. Phantom)',
+                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226288628678791331/blpannhtom.png?ex=66243948&is=6611c448&hm=b5f1eb0f7cdf56d666a90d3bf3dbc936ec2d8c6ff0a81d87d53f1813c2089c55&',
+                price: '57.18€',
+                qcPictures: 'https://qc.pandabuy.com/qc?g=6265837195&s=102297274158&t=0',
+                buyLink: 'https://www.pandabuy.com/product?url=https%3A%2F%2Fweidian.com%2Fitem.html%3FitemID%3D6265837195%26spider_token%3D4572&spider_token=4572&inviteCode=82V6R94BY'
+            },
+            {
+                category: 'shoe',
+                name: 'Jordan 1 Retro Low (Olive)',
+                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226289318205722714/olive.png?ex=662439ec&is=6611c4ec&hm=42477d29e363b8547314631a1f589a00fe014c3baa80db298b0616ba2ca58017&',
+                price: '57.18€',
+                qcPictures: 'https://qc.pandabuy.com/qc?g=6265837195&s=115582376980&t=0',
+                buyLink: 'https://www.pandabuy.com/product?url=https%3A%2F%2Fweidian.com%2Fitem.html%3FitemID%3D6265837195%26spider_token%3D4572&spider_token=4572&inviteCode=82V6R94BY'
+            },
+            // Watches
+            {
+                category: 'watches',
+                name: 'Jordan 4 Retro (Black Cat)',
+                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226291212000956537/rolex.png?ex=66243bb0&is=6611c6b0&hm=fec263a918bb2269aaf02cff5c9056345d6395d29e5d8ba634f5bcacbcc837e7&',
+                price: '34.59€ - 38.77',
+                qcPictures: 'https://qc.pandabuy.com/qc?g=4442856852&s=116653048321&t=0',
+                buyLink: 'https://www.pandabuy.com/product?ra=544&url=PJ4r0LcoM6oqyU3wWzi5gZcZEmctcV2Hu3lO0vQSISETuMtoksEilKwLWhNANF2vBq4MdjHIJOIU4X3yR91eT6D9NC54harfiH4OzQ%253D%253D&utm_source=url&utm_medium=pdb&utm_campaign=normal'
+            },
+        ];
+        function addToList(category, item) {
+    const list = document.querySelector(`#${category} .list`);
+    const li = document.createElement('li');
+    li.innerHTML = `
+        <img src="${item.picture}" alt="${item.name}">
+        <h3>${item.name}</h3>
+        <p>Price: ${item.price}</p>
+        <a href="${item.buyLink}" target="_blank" class="btn" onclick="openLink(event, '${item.buyLink}')">Buy on Pandabuy</a>
+        <a href="${item.qcPictures}" target="_blank" class="btn" onclick="openLink(event, '${item.qcPictures}')">Watch Product Pictures</a>
+        <div class="shine"></div>
+        <div class="background">
+            <div class="tiles">
+                <div class="tile tile-1"></div>
+                <div class="tile tile-2"></div>
+                <div class="tile tile-3"></div>
+                <div class="tile tile-4"></div>
+                <div class="tile tile-5"></div>
+                <div class="tile tile-6"></div>
+                <div class="tile tile-7"></div>
+                <div class="tile tile-8"></div>
+                <div class="tile tile-9"></div>
+                <div class="tile tile-10"></div>
+            </div>
+            <div class="line line-1"></div>
+            <div class="line line-2"></div>
+            <div class="line line-3"></div>
+        </div>
+    `;
+    list.appendChild(li);
+}
+
+function openLink(event, link) {
+    event.preventDefault();
+    window.open(link, '_blank');
+}
+
+        data.forEach(item => {
+            addToList(item.category, item);
+        });
+    
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    
+        document.addEventListener("DOMContentLoaded", function () {
+            document.addEventListener("selectstart", e => e.preventDefault());
+            document.addEventListener("contextmenu", e => e.preventDefault());
+            document.addEventListener("keydown", e => {
+                if (e.keyCode === 123 || (e.ctrlKey && e.shiftKey && e.keyCode === 73) || (e.ctrlKey && e.keyCode === 85)) {
+                    e.preventDefault();
+                }
+            });
+    
+            const cursorPoint = document.querySelector(".cursor-point");
+            const cursorBorder = document.querySelector(".cursor-border");
+            let mouseX = 0;
+            let mouseY = 0;
+            let borderX = 0;
+            let borderY = 0;
+    
+            document.addEventListener("mousemove", e => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+                cursorPoint.style.left = mouseX + "px";
+                cursorPoint.style.top = mouseY + "px";
+            });
+    
+            function animateBorder() {
+                borderX += (mouseX - borderX) * 0.05;
+                borderY += (mouseY - borderY) * 0.05;
+                cursorBorder.style.left = `${borderX}px`;
+                cursorBorder.style.top = `${borderY}px`;
+                requestAnimationFrame(animateBorder);
+            }
+            animateBorder();
+        });
+    
+        document.querySelector(".day-night input").addEventListener("change", () => {
+            document.querySelector("body").classList.add("toggle");
+            setTimeout(() => {
+                document.querySelector("body").classList.toggle("light");
+                setTimeout(
+                    () => document.querySelector("body").classList.remove("toggle"),
+                    10
+                );
+            }, 5);
+        });
+    </script>
+    
+</body>
+</html>
