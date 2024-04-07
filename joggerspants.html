@@ -776,16 +776,8 @@
     <header>
         <nav>
             <ul>
-                <li><a href="#shoe"></i>Shoe</a></li>
-                <li><a href="#pants"></i>Pants</a></li>
-                <li><a href="#jackets"></i>Jackets</a></li>
-                <li><a href="#hoodies"></i>Hoodies</a></li>
-                <li><a href="#t-shirts"></i>T-Shirts</a></li>
-                <li><a href="#jewelry"></i>Jewelry</a></li>
-                <li><a href="#sport"></i>Sport</a></li>
-                <li><a href="#seller"></i>Seller</a></li>
-                <li><a href="#outfit"></i>Outfit</a></li>
-                <li><a href="#watches"></i>Watches</a></li>
+                <li><a href="index.html"></i>Go Back</a></li>
+
             </ul>
         </nav>
     </header>
@@ -795,49 +787,12 @@
                 <h2>Verve Spreadsheet</h2>
                 <h5>Hello! We’re in BETA, adding new products daily.</h5>
                 <h5>The current product count is displayed below, including today’s additions. </h5>
-                <h5>Products on this Website: 85 (+85)</h5>
-                <ul class="list"></ul>
-            </section>
-            <section id="shoe" class="list-section">
-                <h2>Shoe</h2>
+                <h5>In This Collection 6</h5>
                 <ul class="list"></ul>
             </section>
             <section id="pants" class="list-section">
-                <h2>Pants</h2>
+                <h2>Cargo Pants Collection</h2>
                 <ul class="list"></ul>
-            </section>
-            <section id="jackets" class="list-section">
-                <h2>Jackets</h2>
-                <ul class="list"></ul>
-            </section>
-            <section id="hoodies" class="list-section">
-                <h2>Hoodies</h2>
-                <ul class="list"></ul>
-            </section>
-            <section id="t-shirts" class="list-section">
-                <h2>T-Shirts</h2>
-                <ul class="list"></ul>
-            </section>
-            <section id="jewelry" class="list-section">
-                <h2>Jewelry</h2>
-                <ul class="list"></ul>
-            </section>
-            <section id="sport" class="list-section">
-                <h2>Sport</h2>
-                <ul class="list"></ul>
-            </section>
-            <section id="seller" class="list-section">
-                <h2>Seller</h2>
-                <ul class="list"></ul>
-            </section>
-            <section id="outfit" class="list-section">
-                <h2>Outfit</h2>
-                <ul class="list"></ul>
-            </section>
-            <section id="watches" class="list-section">
-                <h2>Watches</h2>
-                <ul class="list"></ul>
-            </section>
         </div>
     </main>
     <div class="custom-cursor">
@@ -846,124 +801,86 @@
     </div>
     <script>
         const data = [
-            // Shoes
             {
-                category: 'shoe',
-                name: 'Air Jordan 4',
-                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226340953632276551/airjordan4.png?ex=66246a03&is=6611f503&hm=be11db99f7cf3211412a1ffa7d22574909ddb16df927da8726e24c3a35f26110&',
-                qcPictures: 'https://qc.pandabuy.com/qc?g=6513871406&s=107431519749&t=0',
-                buyLink: 'https://www.pandabuy.com/product?ra=224&url=PJ5u5VO1l8K3W0N%252B%252BNUxRLtlHuiuLG2fk9yHJbeI%252B8Tc9lCRLqK7K8iW%252BBZs2ae9Ot32XhfjHMPjtpbV60lXjsvnarurFX%252BcDiHlBg%253D%253D&utm_source=url&utm_medium=pdb&utm_campaign=normal&inviteCode=82V6R94BY'
-            },
-            {
-                category: 'shoe',
-                name: 'Air Jordan 1 Low',
-                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226486684749926450/nikedunklow.png?ex=6624f1bc&is=66127cbc&hm=e11d723a695d5f41a192b80fba36dac567749b82baabe8beaa0b6122e0cc00c0&',
-                qcPictures: 'https://qc.pandabuy.com/qc?g=6275046541&s=100958174505&t=0',
-                buyLink: 'https://www.pandabuy.com/product?url=PJ1cr632Oq2sti2KK8XMBGbKaiRF8Tn7da%252FAjo9g%252BJDL3Zn4CvWvHiHI%252F9z%252Fg%252FGUwmk9SKwCT2zYavoKPNdBe08cBwfsf6jUOu0m9g%253D%253D&spider_token=4572&inviteCode=82V6R94BY'
-            },
-            {
-                category: 'shoe',
-                name: 'Nike Dunk Low',
-                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226478799693287434/dunklow.png?ex=6624ea64&is=66127564&hm=ad93e80fdad3b7bd492bb5ef1693ad2e0d25e35e7d5e61047df14ccbb3403f40&',
-                qcPictures: 'https://qc.pandabuy.com/qc?g=6275046541&s=100958174505&t=0',
-                buyLink: 'https://www.pandabuy.com/product?url=PJ1cr632Oq2sti2KK8XMBGbKaiRF8Tn7da%252FAjo9g%252BJDL3Zn4CvWvHiHI%252F9z%252Fg%252FGUwmk9SKwCT2zYavoKPNdBe08cBwfsf6jUOu0m9g%253D%253D&spider_token=4572&inviteCode=82V6R94BY'
-            },
-            {
-                category: 'shoe',
-                name: 'Nike Air Force 1',
-                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226493800084537364/af1white.png?ex=6624f85d&is=6612835d&hm=a076e6611e8b331f7bc061e68cc184b53563b939c0ff4cf22240469455a230e2&',
-                price: '59.97€',
-                qcPictures: 'https://qc.pandabuy.com/qc?g=6478477266&s=105185496995&t=0',
-                buyLink: 'https://www.pandabuy.com/product?url=PJ3u4H8fWzRK8ELBSIKDA9qocTaGu1lLc6%252BIS2%252BOfMOrI8NB7XL7uarLSskKrPqqyFxm%252BIb1jzR5yHTuaoxuu0I4uzoECKhDKMtnsQ%253D%253D&spider_token=4572&inviteCode=82V6R94BY'
+                category: 'pants',
+                name: 'Alcatraz Basic Jogger (Blue)',
+                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226520827487584376/joggerslbue.png?ex=66251188&is=66129c88&hm=6fbac4990e68eeb417b3743339f12a033a75c8e46eb34abbd3a3200d12b316c5&',
+                price: '24.27€',
+                qcPictures: 'https://qc.pandabuy.com/qc?g=6523725712&s=106225527660&t=0',
+                buyLink: 'https://www.pandabuy.com/product?ra=496&url=https%3A%2F%2Fweidian.com%2Fitem.html%3FitemID%3D6523725712%26spider_token%3D4572&utm_source=url&utm_medium=pdb&utm_campaign=normal&inviteCode=82V6R94BY'
             },
             {
                 category: 'pants',
-                name: 'Cargo',
-                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226515943228964936/cargogray.png?ex=66250cfc&is=661297fc&hm=23ec9ba5c6cb0efd25fd34eede4b7ac6e41dd40d66978cdc75cd9985446975c6&',
-                price: '59.97€',
-                qcPictures: 'https://qc.pandabuy.com/qc?g=6478477266&s=105185496995&t=0',
-                buyLink: 'https://www.pandabuy.com/product?url=PJ3u4H8fWzRK8ELBSIKDA9qocTaGu1lLc6%252BIS2%252BOfMOrI8NB7XL7uarLSskKrPqqyFxm%252BIb1jzR5yHTuaoxuu0I4uzoECKhDKMtnsQ%253D%253D&spider_token=4572&inviteCode=82V6R94BY'
+                name: 'Alcatraz Basic Jogger (Black)',
+                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226521428904378429/alcblack.png?ex=66251218&is=66129d18&hm=3083f8f0461bf18bd971f4033f06fea88565ee0ae0117001fd79dcfaa5c5e2b1&',
+                price: '24.27€',
+                qcPictures: 'https://qc.pandabuy.com/qc?g=6556181153&s=106949530412&t=0',
+                buyLink: 'https://www.pandabuy.com/product?ra=864&url=https%3A%2F%2Fweidian.com%2Fitem.html%3FitemID%3D6556181153%26spider_token%3D4572&utm_source=url&utm_medium=pdb&utm_campaign=normal&inviteCode=82V6R94BY'
             },
             {
                 category: 'pants',
-                name: 'Joggers',
+                name: 'Alcatraz Basic Jogger (Gray)',
+                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226522235687145602/arcgray.png?ex=662512d8&is=66129dd8&hm=2fada4280b28845f98317e225d0ab8ab2c07ab745ddba81b5b91bc122768b766&',
+                price: '24.27€',
+                qcPictures: 'https://qc.pandabuy.com/qc?g=6522664275&s=106226378740&t=0',
+                buyLink: 'https://www.pandabuy.com/product?ra=607&url=https%3A%2F%2Fweidian.com%2Fitem.html%3FitemID%3D6522664275%26spider_token%3D4572&utm_source=url&utm_medium=pdb&utm_campaign=normal&inviteCode=82V6R94BY'
+            },
+            {
+                category: 'pants',
+                name: 'Alcatraz Basic Jogger (Green)',
+                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226522031495843850/arcgreen.png?ex=662512a7&is=66129da7&hm=be021f1ddc5cd0878d21f83e80465d4565402f87a57d0c9b9b5d8c34d1a56557&',
+                price: '24.27€',
+                qcPictures: 'https://qc.pandabuy.com/qc?g=6526152090&s=106278205468&t=0',
+                buyLink: 'https://www.pandabuy.com/product?ra=700&url=https%3A%2F%2Fweidian.com%2Fitem.html%3FitemID%3D6526152090%26spider_token%3D4572&utm_source=url&utm_medium=pdb&utm_campaign=normal&inviteCode=82V6R94BY'
+            },
+            {
+                category: 'pants',
+                name: 'Alcatraz Basic Jogger (Blackout)',
                 picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226521736845983865/arcblackout.png?ex=66251261&is=66129d61&hm=2e5f3f9075e6751d0f899227e295fa46d9ce195d0ea8814798080adca3e15e26&',
-                price: '59.97€',
-                qcPictures: 'https://qc.pandabuy.com/qc?g=6478477266&s=105185496995&t=0',
-                buyLink: 'https://www.pandabuy.com/product?url=PJ3u4H8fWzRK8ELBSIKDA9qocTaGu1lLc6%252BIS2%252BOfMOrI8NB7XL7uarLSskKrPqqyFxm%252BIb1jzR5yHTuaoxuu0I4uzoECKhDKMtnsQ%253D%253D&spider_token=4572&inviteCode=82V6R94BY'
+                price: '24.27€',
+                qcPictures: 'https://qc.pandabuy.com/qc?g=6522929519&s=106233933440&t=0',
+                buyLink: 'https://www.pandabuy.com/product?ra=128&url=https%3A%2F%2Fweidian.com%2Fitem.html%3FitemID%3D6522929519%26spider_token%3D4572&utm_source=url&utm_medium=pdb&utm_campaign=normal&inviteCode=82V6R94BY'
             },
             {
                 category: 'pants',
-                name: 'Trackpants',
-                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226525165450694736/nikebrownjeasn.png?ex=66251593&is=6612a093&hm=9d719d1dc018826c9c604111b61c20a2071abd31fbb7cffb78607a31b75fc369&',
-                price: '59.97€',
-                qcPictures: 'https://qc.pandabuy.com/qc?g=6478477266&s=105185496995&t=0',
-                buyLink: 'https://www.pandabuy.com/product?url=PJ3u4H8fWzRK8ELBSIKDA9qocTaGu1lLc6%252BIS2%252BOfMOrI8NB7XL7uarLSskKrPqqyFxm%252BIb1jzR5yHTuaoxuu0I4uzoECKhDKMtnsQ%253D%253D&spider_token=4572&inviteCode=82V6R94BY'
-            },
-            {
-                category: 'pants',
-                name: 'Jeans',
-                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226528615642955836/jeans.png?ex=662518c9&is=6612a3c9&hm=e5238c71f5e9240db7b91799bd5539d68ba1caabe3864e0be9f8c51bcdcd3ddc&',
-                price: '59.97€',
-                qcPictures: 'https://qc.pandabuy.com/qc?g=6478477266&s=105185496995&t=0',
-                buyLink: 'https://www.pandabuy.com/product?url=PJ3u4H8fWzRK8ELBSIKDA9qocTaGu1lLc6%252BIS2%252BOfMOrI8NB7XL7uarLSskKrPqqyFxm%252BIb1jzR5yHTuaoxuu0I4uzoECKhDKMtnsQ%253D%253D&spider_token=4572&inviteCode=82V6R94BY'
+                name: 'Gallery Dept. Jogger [+62 Styles]',
+                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226522708267896974/joggerdept.png?ex=66251349&is=66129e49&hm=31b452600d4c2b11cc027cbdfcfb1bbc0e65623e7652f05dc305407d4f557c63&',
+                price: '15.67€',
+                qcPictures: 'https://qc.pandabuy.com/qc?g=677982546221&s=5074928534901&t=0',
+                buyLink: 'https://www.pandabuy.com/product?url=https%3A%2F%2Fdetail.tmall.com%2Fitem.htm%3Fid%3D677982546221&inviteCode=82V6R94BY'
             },
         ];
         function addToList(category, item) {
-        const list = document.querySelector(`#${category} .list`);
-        const li = document.createElement('li');
-        li.innerHTML = `
-            <img src="${item.picture}" alt="${item.name}">
-            <h3>${item.name}</h3>
-            <button class="btn" onclick="openStyles(event, '${item.name}')">Watch Styles</button>
-            <div class="shine"></div>
-            <div class="background">
-                <div class="tiles">
-                    <div class="tile tile-1"></div>
-                    <div class="tile tile-2"></div>
-                    <div class="tile tile-3"></div>
-                    <div class="tile tile-4"></div>
-                    <div class="tile tile-5"></div>
-                    <div class="tile tile-6"></div>
-                    <div class="tile tile-7"></div>
-                    <div class="tile tile-8"></div>
-                    <div class="tile tile-9"></div>
-                    <div class="tile tile-10"></div>
-                </div>
-                <div class="line line-1"></div>
-                <div class="line line-2"></div>
-                <div class="line line-3"></div>
+    const list = document.querySelector(`#${category} .list`);
+    const li = document.createElement('li');
+    li.innerHTML = `
+        <img src="${item.picture}" alt="${item.name}">
+        <h3>${item.name}</h3>
+        <p>Price: ${item.price}</p>
+        <a href="${item.buyLink}" target="_blank" class="btn" onclick="openLink(event, '${item.buyLink}')">Buy on Pandabuy</a>
+        <a href="${item.qcPictures}" target="_blank" class="btn" onclick="openLink(event, '${item.qcPictures}')">Watch Product Pictures</a>
+        <div class="shine"></div>
+        <div class="background">
+            <div class="tiles">
+                <div class="tile tile-1"></div>
+                <div class="tile tile-2"></div>
+                <div class="tile tile-3"></div>
+                <div class="tile tile-4"></div>
+                <div class="tile tile-5"></div>
+                <div class="tile tile-6"></div>
+                <div class="tile tile-7"></div>
+                <div class="tile tile-8"></div>
+                <div class="tile tile-9"></div>
+                <div class="tile tile-10"></div>
             </div>
-        `;
-        list.appendChild(li);
-    }
-    function openStyles(event, shoeName) {
-        event.preventDefault();
-        if (shoeName === 'Air Jordan 4') {
-            window.location.href = 'retro4.html';
-        }
-        if (shoeName === 'Air Jordan 1 Low') {
-            window.location.href = 'airjordanlow.html';
-        }
-        if (shoeName === 'Nike Dunk Low') {
-            window.location.href = 'nikedunklow.html';
-        }
-        if (shoeName === 'Nike Air Force 1') {
-            window.location.href = 'nikeairforce.html';
-        }
-        if (shoeName === 'Cargo') {
-            window.location.href = 'cargopants.html';
-        }
-        if (shoeName === 'Joggers') {
-            window.location.href = 'joggerspants.html';
-        }
-        if (shoeName === 'Trackpants') {
-            window.location.href = 'trackpants.html';
-        }
-        if (shoeName === 'Jeans') {
-            window.location.href = 'jeanspants.html';
-        }
-    }
+            <div class="line line-1"></div>
+            <div class="line line-2"></div>
+            <div class="line line-3"></div>
+        </div>
+    `;
+    list.appendChild(li);
+}
+
 function openLink(event, link) {
     event.preventDefault();
     window.open(link, '_blank');
@@ -971,16 +888,7 @@ function openLink(event, link) {
         data.forEach(item => {
             addToList(item.category, item);
         });
-    
-        document.querySelectorAll('nav ul li a').forEach(link => {
-            link.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                target.scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
+
     
         document.addEventListener("DOMContentLoaded", function () {
             document.addEventListener("selectstart", e => e.preventDefault());
