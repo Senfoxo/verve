@@ -785,11 +785,11 @@
                 <h2>Verve Spreadsheet</h2>
                 <h5>Hello! We’re in BETA, adding new products daily.</h5>
                 <h5>The current product count is displayed below, including today’s additions. </h5>
-                <h5>In This Collection 3</h5>
+                <h5>In This Collection 10</h5>
                 <ul class="list"></ul>
             </section>
-            <section id="pants" class="list-section">
-                <h2>Bayern München Collection</h2>
+            <section id="shoe" class="list-section">
+                <h2>Nike Dunk Low Collection</h2>
                 <ul class="list"></ul>
         </div>
     </main>
@@ -800,29 +800,85 @@
     <script>
         const data = [
             {
-                category: 'pants',
-                name: '23-24 Home',
-                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226568931871952966/bayernhome24234.png?ex=66253e55&is=6612c955&hm=6de3c17b63c0c7863aaca993b57d82ceb7df7a84a10f574bbd7b5d631a245466&',
-                price: '4.85€',
-                qcPictures: 'https://qc.pandabuy.com/qc?g=718417201354&s=5185125091399&t=0',
-                buyLink: 'https://www.pandabuy.com/product?url=PJ7fkE4vFcXYUoAjduVctgxFnuVUnlCZ4qiAosfJ%2BrJYeonSySnn6s9GuZEYat5V7APYXg%3D%3D&inviteCode=ZK8EJZ69G'
+                category: 'shoe',
+                name: 'Nike Dunk Low (TS Playstation)',
+                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226488237326073917/ps_dunk.png?ex=6624f32e&is=66127e2e&hm=e84261895d99b9c340e5c5fc1ec6dd20de609f0941f62295c5cba112e8ca03e3&',
+                price: '67.96€',
+                qcPictures: 'https://qc.pandabuy.com/qc?g=6485546970&s=105351594622&t=0',
+                buyLink: 'https://www.pandabuy.com/product?ra=349&url=https%3A%2F%2Fweidian.com%2Fitem.html%3FitemID%3D6485546970%26spider_token%3D4572&utm_source=url&utm_medium=pdb&utm_campaign=normal&inviteCode=82V6R94BY'
             },
             {
-                category: 'pants',
-                name: '23-24 Away',
-                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226568579650949220/bayernawyas.png?ex=66253e01&is=6612c901&hm=ddba6d8781cd45b5a7cee6caa747410718167c63b08292fe9ffb16e4947f074b&',
-                price: '4.85€',
-                qcPictures: 'https://qc.pandabuy.com/qc?g=718417201354&s=5185125091393&t=0',
-                buyLink: 'https://www.pandabuy.com/product?url=PJ7fkE4vFcXYUoAjduVctgxFnuVUnlCZ4qiAosfJ%2BrJYeonSySnn6s9GuZEYat5V7APYXg%3D%3D&inviteCode=ZK8EJZ69G'
-            },
+                category: 'shoe',
+                name: 'Jordan 1 Retro Low (Travis Scott)',
+                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226488605627908177/travisjdunk.png?ex=6624f386&is=66127e86&hm=53d62e42b19b7bb993c06ad141d8a5073990814fa0ca7ef06751f5df25c0517f&',
+                price: '56.87€',
+                qcPictures: 'https://qc.pandabuy.com/qc?g=5200417666&s=72550356239&t=0',
+                buyLink: 'https://www.pandabuy.com/product?url=https%3A%2F%2Fweidian.com%2Fitem.html%3FitemID%3D5200417666%26spider_token%3D4572&utm_source=sto&utm_medium=pdb&utm_campaign=normal&inviteCode=82V6R94BY'
+            },        
             {
-                category: 'pants',
-                name: '97-98 ',
-                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226570280365850664/bayern978987.png?ex=66253f97&is=6612ca97&hm=fa72d9a0872c07e1fccecd528e3c4d4e94e3bf649d751590c403acb4dbc60484&',
-                price: '10.40€',
-                qcPictures: 'https://qc.pandabuy.com/qc?g=692322005019&s=4918656361215&t=0',
-                buyLink: 'https://www.pandabuy.com/product?url=PJ9ImDFVd3v76X2jgA%2BBX7MgJVOKBZEf8HMPTzp3YuhhP2RKQSACWGJfGGjmjXprLrJP05y%2FKe%2BnoeaK&inviteCode=ZK8EJZ69G'
-            },
+                category: 'shoe',
+                name: 'Jordan 1 Retro Low (SL Skate)',
+                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226489401283182674/skatboards.png?ex=6624f444&is=66127f44&hm=a7b351a89e691c4ee5e561a3ca1463725d1780b761d12bbdc91936beecac4294&',
+                price: '59.64€',
+                qcPictures: 'https://qc.pandabuy.com/qc?g=5200417666&s=72550510092&t=0',
+                buyLink: 'https://www.pandabuy.com/product?url=https%3A%2F%2Fweidian.com%2Fitem.html%3FitemID%3D5200417666%26spider_token%3D4572&utm_source=sto&utm_medium=pdb&utm_campaign=normal&inviteCode=82V6R94BY'
+            }, 
+            {
+                category: 'shoe',
+                name: 'Jordan 1 Retro Low (CD Ben&Jerry)',
+                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226489913885851648/benjerry.png?ex=6624f4be&is=66127fbe&hm=c8471e95da3b6e68e72a2d4311d2d0b9a252fab0550563fa262d73dcdc9a10dd&',
+                price: '47.16€',
+                qcPictures: 'https://qc.pandabuy.com/qc?g=5203584781&s=112035438569&t=0',
+                buyLink: 'https://www.pandabuy.com/product?url=https%3A%2F%2Fweidian.com%2Fitem.html%3FitemID%3D5203584781%26spider_token%3D4572&utm_source=sto&utm_medium=pdb&utm_campaign=normal&inviteCode=82V6R94BY'
+            }, 
+            {
+                category: 'shoe',
+                name: 'Jordan 1 Retro Low (Pur. Lobster)',
+                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226490343256752188/lobster.png?ex=6624f524&is=66128024&hm=29e2cade63b27105b2afa82f89511a9aa12d136ca33d0f0bc8a4f3cb9def7d41&',
+                price: '55.48€',
+                qcPictures: 'https://qc.pandabuy.com/qc?g=4367689623&s=48653459157&t=0',
+                buyLink: 'https://www.pandabuy.com/product?url=https%3A%2F%2Fweidian.com%2Fitem.html%3FitemID%3D4367689623%26spider_token%3D4572&spider_token=4572&inviteCode=82V6R94BY'
+            }, 
+            {
+                category: 'shoe',
+                name: 'Jordan 1 Retro Low (Bear Green)',
+                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226490917939056733/beargreen.png?ex=6624f5ad&is=661280ad&hm=e20bd6f6d84770a5d63944a8dcaadf10ef83721db5f324e66c7097796f7ab66e&',
+                price: '55.48€',
+                qcPictures: 'https://qc.pandabuy.com/qc?g=4367689623&s=85260706040&t=0',
+                buyLink: 'https://www.pandabuy.com/product?url=https%3A%2F%2Fweidian.com%2Fitem.html%3FitemID%3D4367689623%26spider_token%3D4572&spider_token=4572&inviteCode=82V6R94BY'
+            }, 
+            {
+                category: 'shoe',
+                name: 'Jordan 1 Retro Low (Green Lobster)',
+                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226491405556383856/greenlobster.png?ex=6624f622&is=66128122&hm=dc253874300813a38c08b321ac39813007d58ed9b0c1dee38a9846bd2e07fa03&',
+                price: '55.48€',
+                qcPictures: 'https://qc.pandabuy.com/qc?g=4367689623&s=48238754422&t=0',
+                buyLink: 'https://www.pandabuy.com/product?url=https%3A%2F%2Fweidian.com%2Fitem.html%3FitemID%3D4367689623%26spider_token%3D4572&spider_token=4572&inviteCode=82V6R94BY'
+            }, 
+            {
+                category: 'shoe',
+                name: 'Jordan 1 Retro Low (Bear Yellow)',
+                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226491663296368741/bearyellow.png?ex=6624f65f&is=6612815f&hm=c7db6186d6e632c744d7d3a5408cc89e33a37fee9b18bd3c0328290dff7c20de&',
+                price: '55.48€',
+                qcPictures: 'https://qc.pandabuy.com/qc?g=4367689623&s=85260706038&t=0',
+                buyLink: 'https://www.pandabuy.com/product?url=https%3A%2F%2Fweidian.com%2Fitem.html%3FitemID%3D4367689623%26spider_token%3D4572&spider_token=4572&inviteCode=82V6R94BY'
+            }, 
+            {
+                category: 'shoe',
+                name: 'Jordan 1 Retro Low (Yel. Lobster)',
+                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226492054226473042/yellowlobster.png?ex=6624f6bc&is=661281bc&hm=8b1dd6a9febb9e3b87a33989382ab36bf5e4140eff2b77a8acb18e22d5f72220&',
+                price: '55.48€',
+                qcPictures: 'https://qc.pandabuy.com/qc?g=4367689623&s=106040083805&t=0',
+                buyLink: 'https://www.pandabuy.com/product?url=https%3A%2F%2Fweidian.com%2Fitem.html%3FitemID%3D4367689623%26spider_token%3D4572&spider_token=4572&inviteCode=82V6R94BY'
+            }, 
+            {
+                category: 'shoe',
+                name: 'Jordan 1 Retro Low (Ora. Lobster)',
+                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226492610084868126/orangelobster.png?ex=6624f741&is=66128241&hm=2db43ecddfd085d8c0a99437f46120f4a2438262d0df4a625a7e6927599d6f63&',
+                price: '51.32€',
+                qcPictures: 'https://qc.pandabuy.com/qc?g=6838372451&s=113393489092&t=0',
+                buyLink: 'https://www.pandabuy.com/product?ra=729&url=PJ8pvyWKZSzUDdq0SeCEbFaBedbvuLlLIrqJ1Ww4B3x3g1qi7OXlfyjsdb9aL44mzR7Afd5ZbetR%252F55w1PWAc5qNnkCmptnH7K4rTw%253D%253D&utm_source=url&utm_medium=pdb&utm_campaign=normal'
+            }, 
         ];
         function addToList(category, item) {
     const list = document.querySelector(`#${category} .list`);

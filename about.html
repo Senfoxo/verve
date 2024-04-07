@@ -769,28 +769,66 @@
             transform: none;
         }
     }
+
+.CSharp {
+    --card-shine-gradient: conic-gradient(from 205deg at 50% 50%, rgba(148, 57, 151, 0) 0deg, #A077DB 25deg, rgba(160, 119, 219) 295deg, rgba(175, 175, 175, 0) 360deg);
+    --card-line-color: #A077DB;
+    --card-hover-border-color: rgba(160, 119, 219, 0.2);
+}
+.CPP {
+    --card-shine-gradient: conic-gradient(from 205deg at 50% 50%, rgba(151, 57, 57, 0) 0deg, #659BD3 25deg, rgba(101, 155, 211) 295deg, rgba(175, 175, 175, 0) 360deg);
+    --card-line-color: #659BD3;
+    --card-hover-border-color: rgba(101, 155, 211, 0.2);
+}
+
+.Python {
+    --card-shine-gradient: conic-gradient(from 205deg at 50% 50%, rgba(151, 57, 57, 0) 0deg, #3D79AA 25deg, rgba(61, 121, 170) 295deg, rgba(175, 175, 175, 0) 360deg);
+    --card-line-color: #3D79AA;
+    --card-hover-border-color: rgba(61, 121, 170, 0.2);
+}
+
+.HTML {
+    --card-shine-gradient: conic-gradient(from 205deg at 50% 50%, rgba(151, 57, 57, 0) 0deg, #E54C21 25deg, rgba(229, 76, 33) 295deg, rgba(175, 175, 175, 0) 360deg);
+    --card-line-color: #E54C21;
+    --card-hover-border-color: rgba(229, 76, 33, 0.2);
+}
+
+.LUA {
+    --card-shine-gradient: conic-gradient(from 205deg at 50% 50%, rgba(151, 57, 57, 0) 0deg, #000080 25deg, rgba(0, 0, 128) 295deg, rgba(175, 175, 175, 0) 360deg);
+    --card-line-color: #000080;
+    --card-hover-border-color: rgba(0, 0, 128, 0.2);
+}
+
+h5 {
+    font-weight: 400;
+}
+
+.highlight {
+    font-weight: 700;
+}
     </style>
 </head>
 <body>
     <header>
         <nav>
             <ul>
-                <li><a href="../index.html">Go Back</a></li>
+                <li><a href="./index.html">Go Back</a></li>
             </ul>
         </nav>
     </header>
     <main>
         <div class="content">
             <section id="clothing" class="list-section">
-                <h2>Verve Spreadsheet</h2>
-                <h5>Hello! We’re in BETA, adding new products daily.</h5>
-                <h5>The current product count is displayed below, including today’s additions. </h5>
-                <h5>In This Collection 3</h5>
+                <h2>About Me</h2>
+                <h5>Hi, I'm <span class="highlight">Maurice</span> from Germany. I'm a <span class="highlight">frontend and backend developer</span> with a passion for computer science. I'm a polyglot programmer, proficient in several languages, with <span class="highlight">C# and C++</span> being my strongest.</h5>
+                <h5>I've been programming since I was 10 years old, so I have 8 years of experience under my belt. I'm a computer geek and I love everything related to computer science. I enjoy taking on tasks for others and am always open to collaborations.</h5>
+                <h5>If you're interested in collaborating with me, or if you have any questions, feel free to contact me on Discord (<span class="highlight">jisll</span>). I'm particularly interested in leadership positions in development teams.</h5>
                 <ul class="list"></ul>
             </section>
-            <section id="pants" class="list-section">
-                <h2>Bayern München Collection</h2>
+            <section id="shoe" class="list-section">
+                <h2>Main Languages</h2>
                 <ul class="list"></ul>
+            </section>
         </div>
     </main>
     <div class="custom-cursor">
@@ -799,40 +837,62 @@
     </div>
     <script>
         const data = [
+            // Shoes
             {
-                category: 'pants',
-                name: '23-24 Home',
-                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226568931871952966/bayernhome24234.png?ex=66253e55&is=6612c955&hm=6de3c17b63c0c7863aaca993b57d82ceb7df7a84a10f574bbd7b5d631a245466&',
-                price: '4.85€',
-                qcPictures: 'https://qc.pandabuy.com/qc?g=718417201354&s=5185125091399&t=0',
-                buyLink: 'https://www.pandabuy.com/product?url=PJ7fkE4vFcXYUoAjduVctgxFnuVUnlCZ4qiAosfJ%2BrJYeonSySnn6s9GuZEYat5V7APYXg%3D%3D&inviteCode=ZK8EJZ69G'
-            },
-            {
-                category: 'pants',
-                name: '23-24 Away',
-                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226568579650949220/bayernawyas.png?ex=66253e01&is=6612c901&hm=ddba6d8781cd45b5a7cee6caa747410718167c63b08292fe9ffb16e4947f074b&',
-                price: '4.85€',
-                qcPictures: 'https://qc.pandabuy.com/qc?g=718417201354&s=5185125091393&t=0',
-                buyLink: 'https://www.pandabuy.com/product?url=PJ7fkE4vFcXYUoAjduVctgxFnuVUnlCZ4qiAosfJ%2BrJYeonSySnn6s9GuZEYat5V7APYXg%3D%3D&inviteCode=ZK8EJZ69G'
-            },
-            {
-                category: 'pants',
-                name: '97-98 ',
-                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226570280365850664/bayern978987.png?ex=66253f97&is=6612ca97&hm=fa72d9a0872c07e1fccecd528e3c4d4e94e3bf649d751590c403acb4dbc60484&',
-                price: '10.40€',
-                qcPictures: 'https://qc.pandabuy.com/qc?g=692322005019&s=4918656361215&t=0',
-                buyLink: 'https://www.pandabuy.com/product?url=PJ9ImDFVd3v76X2jgA%2BBX7MgJVOKBZEf8HMPTzp3YuhhP2RKQSACWGJfGGjmjXprLrJP05y%2FKe%2BnoeaK&inviteCode=ZK8EJZ69G'
-            },
+        category: 'shoe',
+        name: 'C Sharp',
+        picture: 'https://cdn.discordapp.com/attachments/1071149320159641651/1226625737881157782/c.png?ex=6625733d&is=6612fe3d&hm=ccc0cab69ee5e2dd857cce198eae9f3884e33c53cfa4ef114b3ed804543be0db&',
+        qcPictures: 'https://qc.pandabuy.com/qc?g=6513871406&s=107431519749&t=0',
+        buyLink: 'https://www.pandabuy.com/product?ra=224&url=PJ5u5VO1l8K3W0N%252B%252BNUxRLtlHuiuLG2fk9yHJbeI%252B8Tc9lCRLqK7K8iW%252BBZs2ae9Ot32XhfjHMPjtpbV60lXjsvnarurFX%252BcDiHlBg%253D%253D&utm_source=url&utm_medium=pdb&utm_campaign=normal&inviteCode=82V6R94BY',
+        stats: 'Learning since 8 years',
+        bestLanguage: '55'
+    },
+    {
+        category: 'shoe',
+        name: 'CPP',
+        picture: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/ISO_C%2B%2B_Logo.svg/1822px-ISO_C%2B%2B_Logo.svg.png',
+        qcPictures: 'https://qc.pandabuy.com/qc?g=6513871406&s=107431519749&t=0',
+        buyLink: 'https://www.pandabuy.com/product?ra=224&url=PJ5u5VO1l8K3W0N%252B%252BNUxRLtlHuiuLG2fk9yHJbeI%252B8Tc9lCRLqK7K8iW%252BBZs2ae9Ot32XhfjHMPjtpbV60lXjsvnarurFX%252BcDiHlBg%253D%253D&utm_source=url&utm_medium=pdb&utm_campaign=normal&inviteCode=82V6R94BY',
+        stats: 'Learning since 5 years',
+        bestLanguage: '84'
+    },
+    {
+        category: 'shoe',
+        name: 'Python',
+        picture: 'https://cdn.discordapp.com/attachments/1071149320159641651/1226624244922974333/python.png?ex=662571d9&is=6612fcd9&hm=0d3482de1a4ae9e8ec4ce7a7c05c616850d331ee9609048ee79003242ac60a29&',
+        qcPictures: 'https://qc.pandabuy.com/qc?g=6513871406&s=107431519749&t=0',
+        buyLink: 'https://www.pandabuy.com/product?ra=224&url=PJ5u5VO1l8K3W0N%252B%252BNUxRLtlHuiuLG2fk9yHJbeI%252B8Tc9lCRLqK7K8iW%252BBZs2ae9Ot32XhfjHMPjtpbV60lXjsvnarurFX%252BcDiHlBg%253D%253D&utm_source=url&utm_medium=pdb&utm_campaign=normal&inviteCode=82V6R94BY',
+        stats: 'Learning since 2 years',
+        bestLanguage: '12'
+    },
+    {
+        category: 'shoe',
+        name: 'HTML',
+        picture: 'https://cdn.discordapp.com/attachments/1071149320159641651/1226625476756504706/html.png?ex=662572ff&is=6612fdff&hm=4a5f1d970080dbda7aedff015b9c318b73dc00b298433fe2648b0b07a4e860b7&',
+        qcPictures: 'https://qc.pandabuy.com/qc?g=6513871406&s=107431519749&t=0',
+        buyLink: 'https://www.pandabuy.com/product?ra=224&url=PJ5u5VO1l8K3W0N%252B%252BNUxRLtlHuiuLG2fk9yHJbeI%252B8Tc9lCRLqK7K8iW%252BBZs2ae9Ot32XhfjHMPjtpbV60lXjsvnarurFX%252BcDiHlBg%253D%253D&utm_source=url&utm_medium=pdb&utm_campaign=normal&inviteCode=82V6R94BY',
+        stats: 'Learning since 1 years',
+        bestLanguage: '8'
+    },
+    {
+        category: 'shoe',
+        name: 'LUA',
+        picture: 'https://cdn.discordapp.com/attachments/1071149320159641651/1226625876964282459/lua.png?ex=6625735e&is=6612fe5e&hm=f5524066415c409f03412240b51a42cdb6e391fed77f7fde0768669df2e640da&',
+        qcPictures: 'https://qc.pandabuy.com/qc?g=6513871406&s=107431519749&t=0',
+        buyLink: 'https://www.pandabuy.com/product?ra=224&url=PJ5u5VO1l8K3W0N%252B%252BNUxRLtlHuiuLG2fk9yHJbeI%252B8Tc9lCRLqK7K8iW%252BBZs2ae9Ot32XhfjHMPjtpbV60lXjsvnarurFX%252BcDiHlBg%253D%253D&utm_source=url&utm_medium=pdb&utm_campaign=normal&inviteCode=82V6R94BY',
+        stats: 'Learning since 7 years',
+        bestLanguage: '7'
+    },
         ];
         function addToList(category, item) {
     const list = document.querySelector(`#${category} .list`);
     const li = document.createElement('li');
+    li.classList.add(item.name.replace(/\s+/g, ''));
     li.innerHTML = `
         <img src="${item.picture}" alt="${item.name}">
         <h3>${item.name}</h3>
-        <p>Price: ${item.price}</p>
-        <a href="${item.buyLink}" target="_blank" class="btn" onclick="openLink(event, '${item.buyLink}')">Buy on Pandabuy</a>
-        <a href="${item.qcPictures}" target="_blank" class="btn" onclick="openLink(event, '${item.qcPictures}')">Watch Product Pictures</a>
+        <p>${item.stats}</p>
+        <p>Project's completed: ${item.bestLanguage}</p> 
         <div class="shine"></div>
         <div class="background">
             <div class="tiles">
@@ -854,7 +914,6 @@
     `;
     list.appendChild(li);
 }
-
 function openLink(event, link) {
     event.preventDefault();
     window.open(link, '_blank');
@@ -862,7 +921,20 @@ function openLink(event, link) {
         data.forEach(item => {
             addToList(item.category, item);
         });
-
+    
+        document.querySelectorAll('nav ul li a').forEach(link => {
+    if (link.getAttribute('href') !== '../index.html') {
+        link.addEventListener('click', function (e) {
+            const target = document.querySelector(this.getAttribute('href'));
+            if(target) {
+                e.preventDefault();
+                target.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        });
+    }
+});
     
         document.addEventListener("DOMContentLoaded", function () {
             document.addEventListener("selectstart", e => e.preventDefault());
