@@ -399,61 +399,6 @@
         .list li:hover .background .line.line-3:after {
             transition-delay: .3s;
         }
-        .day-night {
-            cursor: pointer;
-            position: absolute;
-            right: 20px;
-            top: 20px;
-            opacity: .3;
-        }
-        .day-night input {
-            display: none;
-        }
-        .day-night input+div {
-            border-radius: 50%;
-            width: 20px;
-            height: 20px;
-            position: relative;
-            box-shadow: inset 8px -8px 0 0 var(--text-color);
-            transform: scale(1) rotate(-2deg);
-            transition: box-shadow .5s ease 0s, transform .4s ease .1s;
-        }
-        .day-night input+div:before {
-            content: '';
-            width: inherit;
-            height: inherit;
-            border-radius: inherit;
-            position: absolute;
-            left: 0;
-            top: 0;
-            transition: background-color .3s ease;
-        }
-        .day-night input+div:after {
-            content: '';
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            margin: -3px 0 0 -3px;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            box-shadow: 0 -23px 0 var(--text-color), 0 23px 0 var(--text-color), 23px 0 0 var(--text-color), -23px 0 0 var(--text-color), 15px 15px 0 var(--text-color), -15px 15px 0 var(--text-color), 15px -15px 0 var(--text-color), -15px -15px 0 var(--text-color);
-            transform: scale(0);
-            transition: all .3s ease;
-        }
-        .day-night input:checked+div {
-            box-shadow: inset 20px -20px 0 0 var(--text-color);
-            transform: scale(.5) rotate(0deg);
-            transition: transform .3s ease .1s, box-shadow .2s ease 0s;
-        }
-        .day-night input:checked+div:before {
-            background: var(--text-color);
-            transition: background-color .3s ease .1s;
-        }
-        .day-night input:checked+div:after {
-            transform: scale(1);
-            transition: transform .5s ease .15s;
-        }
         html {
             box-sizing: border-box;
             -webkit-font-smoothing: antialiased;
@@ -973,17 +918,6 @@ function openLink(event, link) {
                 requestAnimationFrame(animateBorder);
             }
             animateBorder();
-        });
-    
-        document.querySelector(".day-night input").addEventListener("change", () => {
-            document.querySelector("body").classList.add("toggle");
-            setTimeout(() => {
-                document.querySelector("body").classList.toggle("light");
-                setTimeout(
-                    () => document.querySelector("body").classList.remove("toggle"),
-                    10
-                );
-            }, 5);
         });
     </script>
         <script>
