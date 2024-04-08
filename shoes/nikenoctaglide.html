@@ -741,23 +741,27 @@
             transition-delay: .3s;
         }
         .btn {
-            display: inline-block;
-            margin-top: 10px;
-            padding: 10px 20px;
-            color: #000000;
-            background-color: #ffffff;
-            border: none;
-            border-radius: 5px;
-            text-decoration: none;
-            text-align: center;
-            transition: background-color 0.3s ease;
-            z-index: 3;
-            font-size: 12px;
-            font-weight: bold;
-        }
-        .btn:hover {
-            background-color: #c5c5c5;
-        }
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 24px;
+    color: #000000;
+    background-color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.3s ease;
+    z-index: 3;
+    font-size: 12px;
+    font-weight: bold;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn:hover {
+    background-color: #ffffffb2;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
         @keyframes fadeInUp {
         from {
             opacity: 0;
@@ -782,11 +786,10 @@
     <main>
         <div class="content">
             <section id="clothing" class="list-section">
-                <h2>Verve Spreadsheet</h2>
-                <h5>Hello! We’re in BETA, adding new products daily.</h5>
-                <h5>The current product count is displayed below, including today’s additions. </h5>
-                <h5>In This Collection 7</h5>
-                <ul class="list"></ul>
+                <div style="text-align: center;">
+                    <img src="https://cdn.discordapp.com/attachments/1226260557557141596/1226826392885399624/padnabuylogo.png?ex=66262e1d&is=6613b91d&hm=88a70133ffcbd54330d4daf6030980122bef141b492327b160f1b3761e12c0de&" alt="Logo" style="width: 350px;">
+                </div>
+                <ul class="list"></ul>   
             </section>
             <section id="shoe" class="list-section">
                 <h2>Corteiz Nike Air Max 95 Collection</h2>
