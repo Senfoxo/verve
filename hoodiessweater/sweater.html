@@ -769,43 +769,6 @@
             transform: none;
         }
     }
-
-.CSharp {
-    --card-shine-gradient: conic-gradient(from 205deg at 50% 50%, rgba(148, 57, 151, 0) 0deg, #A077DB 25deg, rgba(160, 119, 219) 295deg, rgba(175, 175, 175, 0) 360deg);
-    --card-line-color: #A077DB;
-    --card-hover-border-color: rgba(160, 119, 219, 0.2);
-}
-.CPP {
-    --card-shine-gradient: conic-gradient(from 205deg at 50% 50%, rgba(151, 57, 57, 0) 0deg, #659BD3 25deg, rgba(101, 155, 211) 295deg, rgba(175, 175, 175, 0) 360deg);
-    --card-line-color: #659BD3;
-    --card-hover-border-color: rgba(101, 155, 211, 0.2);
-}
-
-.Python {
-    --card-shine-gradient: conic-gradient(from 205deg at 50% 50%, rgba(151, 57, 57, 0) 0deg, #3D79AA 25deg, rgba(61, 121, 170) 295deg, rgba(175, 175, 175, 0) 360deg);
-    --card-line-color: #3D79AA;
-    --card-hover-border-color: rgba(61, 121, 170, 0.2);
-}
-
-.HTML {
-    --card-shine-gradient: conic-gradient(from 205deg at 50% 50%, rgba(151, 57, 57, 0) 0deg, #E54C21 25deg, rgba(229, 76, 33) 295deg, rgba(175, 175, 175, 0) 360deg);
-    --card-line-color: #E54C21;
-    --card-hover-border-color: rgba(229, 76, 33, 0.2);
-}
-
-.LUA {
-    --card-shine-gradient: conic-gradient(from 205deg at 50% 50%, rgba(151, 57, 57, 0) 0deg, #000080 25deg, rgba(0, 0, 128) 295deg, rgba(175, 175, 175, 0) 360deg);
-    --card-line-color: #000080;
-    --card-hover-border-color: rgba(0, 0, 128, 0.2);
-}
-
-h5 {
-    font-weight: 400;
-}
-
-.highlight {
-    font-weight: 700;
-}
     </style>
 </head>
 <body>
@@ -819,9 +782,15 @@ h5 {
     <main>
         <div class="content">
             <section id="clothing" class="list-section">
-                <h2>Error Has Been Found</h2>
-                <h5>Hello there, an <span class="highlight">ERROR</span> has occurred 😱. Either this page does <span class="highlight">NOT EXISTS</span> or it is currently being <span class="highlight">EDITED</span> and <span class="highlight">COMPLETED</span>. Please be patient 🙏 or contact <span class="highlight">JISLL</span> on Discord!</h5>
+                <h2>Verve Spreadsheet</h2>
+                <h5>Hello! We’re in BETA, adding new products daily.</h5>
+                <h5>The current product count is displayed below, including today’s additions. </h5>
+                <h5>In This Collection 6</h5>
+                <ul class="list"></ul>
             </section>
+            <section id="shoe" class="list-section">
+                <h2>Sweater Collection</h2>
+                <ul class="list"></ul>
         </div>
     </main>
     <div class="custom-cursor">
@@ -830,18 +799,120 @@ h5 {
     </div>
     <script>
         const data = [
-            // Shoes
-            
+            {
+                category: 'shoe',
+                name: 'Stussy Knit Sweater (Creamy)',
+                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226697239943184405/fsdfv_wstrwtv.png?ex=6625b5d4&is=661340d4&hm=c203d9fb1796dcbb32b38d64eaf6e4ed571bf9ad33b9f359d1a25f73a65d1e55&',
+                price: '20.39€',
+                qcPictures: 'https://qc.pandabuy.com/qc?g=658802784606&s=4895027437304&t=0',
+                buyLink: 'https://www.pandabuy.com/product?url=PJ6odvDMyfhdBBkw0OLOaFTUs98x82i%252FjsjbBc68ihw7R9UeyFiE8sJ7D6idjuUFk%252BtokssZEwtVYp9H&inviteCode=82V6R94BY'
+            },
+            {
+                category: 'shoe',
+                name: 'Stussy Knit Sweater (Black)',
+                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226698421897789440/blackkadsf.png?ex=6625b6ee&is=661341ee&hm=8bb6cd7198df008540d3545f4167ecc2378b490f5a124240db8c650b4166daa4&',
+                price: '20.39€',
+                qcPictures: 'https://qc.pandabuy.com/qc?g=658802784606&s=4753686772015&t=0',
+                buyLink: 'https://www.pandabuy.com/product?url=PJ6odvDMyfhdBBkw0OLOaFTUs98x82i%252FjsjbBc68ihw7R9UeyFiE8sJ7D6idjuUFk%252BtokssZEwtVYp9H&inviteCode=82V6R94BY'
+            },
+            {
+                category: 'shoe',
+                name: 'Stussy Knit Sweater (Green)',
+                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226698210060275722/rewvwqer.png?ex=6625b6bc&is=661341bc&hm=46f6749692fab3a7c4baa3ba258a12998bbf903288d73864f811c2a048260f02&',
+                price: '20.39€',
+                qcPictures: 'https://qc.pandabuy.com/qc?g=658802784606&s=4895027437304&t=0',
+                buyLink: 'https://www.pandabuy.com/product?url=PJ6odvDMyfhdBBkw0OLOaFTUs98x82i%252FjsjbBc68ihw7R9UeyFiE8sJ7D6idjuUFk%252BtokssZEwtVYp9H&inviteCode=82V6R94BY'
+            },
+            {
+                category: 'shoe',
+                name: 'Stussy Knit Sweater (Wine Red)',
+                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226698706640965664/werwcerqvwer.png?ex=6625b732&is=66134232&hm=eb48a16967af27f25c5a43cf93c93419e2abaa2f00521b67ee8366b7c1b7c951&',
+                price: '20.39€',
+                qcPictures: 'https://qc.pandabuy.com/qc?g=658802784606&s=4753686772013&t=0',
+                buyLink: 'https://www.pandabuy.com/product?url=PJ6odvDMyfhdBBkw0OLOaFTUs98x82i%252FjsjbBc68ihw7R9UeyFiE8sJ7D6idjuUFk%252BtokssZEwtVYp9H&inviteCode=82V6R94BY'
+            },
+            {
+                category: 'shoe',
+                name: 'Jordan 1 Retro Low (Dior)',
+                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226700207966654565/werwerfqwer.png?ex=6625b898&is=66134398&hm=b7e4fa5ce7846b71e93afef8ab9c1e0b1688bdab20ca250ade7c2921df1eee9d&',
+                price: '20.53€',
+                qcPictures: 'https://www.pandabuy.com/product?ra=872&url=PJ4t0LcoM3UqyU3w%252FWLxbFu2BwUWghfcFJuyyHJO%252Bumed0S3ycLXU7JKlvPFQLl%252FlVFCkEPfaRgW05Rz&utm_source=url&utm_medium=pdb&utm_campaign=normal&inviteCode=82V6R94BY',
+                buyLink: 'https://www.pandabuy.com/product?ra=872&url=PJ4t0LcoM3UqyU3w%252FWLxbFu2BwUWghfcFJuyyHJO%252Bumed0S3ycLXU7JKlvPFQLl%252FlVFCkEPfaRgW05Rz&utm_source=url&utm_medium=pdb&utm_campaign=normal&inviteCode=82V6R94BY'
+            },
+            {
+                category: 'shoe',
+                name: 'Yeat Sweater',
+                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226700611240726639/wercer.png?ex=6625b8f8&is=661343f8&hm=84fabafcad5d44a4f89407ac2b679fe4a8703117a221dad5d528cf08f5460d9e&',
+                price: '20.67€',
+                qcPictures: 'https://qc.pandabuy.com/qc?g=693219696174&s=4926526993401&t=0',
+                buyLink: 'https://www.pandabuy.com/product?url=PJ2p4NH64isn%252Fva%252FoebyeSlEoIQOf1bI5W3uRt%252FKgMxZfS77BHrIUTmvm3L98oCkPZTKEsjSJVS%252BS%252B2n&inviteCode=82V6R94BY'
+            },
+            {
+                category: 'shoe',
+                name: 'Frank Ocean Knit Sweater',
+                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226700966452006973/trzrzn.png?ex=6625b94d&is=6613444d&hm=2e5536b4c80e695a2a05695749769889ad5518677acefaa411eb26d4b8974b61&',
+                price: '27,64€',
+                qcPictures: 'https://qc.pandabuy.com/qc?g=705601561734&s=4965710373567&t=0',
+                buyLink: 'https://www.pandabuy.com/product?url=PJ0cUpUDxf8a6N6%252FdblG%252BA4kXWkHhd9zH6nZtvJc6vT0jlrWd8lERmv5kmXHg4PSSFk6LtRb2Thiq%252Fg7&inviteCode=82V6R94BY'
+            },
+            {
+                category: 'shoe',
+                name: 'Mastermind Skull Knit Sweater',
+                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226701261454311535/rebtertb.png?ex=6625b993&is=66134493&hm=494acef74b4e22ae6eb1b88b19ce7e483ecf0c16445a09536918c5a2118c5279&',
+                price: '23.30€',
+                qcPictures: 'https://qc.pandabuy.com/qc?g=3913619385&s=38238075681&t=0',
+                buyLink: 'https://www.pandabuy.com/product?ra=909&url=PJ2t4NFo4isn%252Fva%252FBc2OMHBDECFSY%252Fqfh9wtpCI1FOXY9%252FzZZ6yEQjidmUgo5kPHELFHjbBCO8ECQFdWju1NppjiCQCY3cka9qkocQ%253D%253D&utm_source=url&utm_medium=pdb&utm_campaign=normal&inviteCode=82V6R94BY'
+            },
+            {
+                category: 'shoe',
+                name: 'Golf Wang Knit Sweater',
+                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226701569882325022/wevrtzberz.png?ex=6625b9dd&is=661344dd&hm=c5951d1e7648aa4bd597c4a73435c625b1504bd335624fea8a9099d8e9e19887&',
+                price: '24.97€',
+                qcPictures: 'https://qc.pandabuy.com/qc?g=679931948932&s=5047964910722&t=0',
+                buyLink: 'https://www.pandabuy.com/product?url=PJ7zkE4vFcXYUpAjK9guxGu0ApTWBnhl0%252FFpjJJV8ykGLb8PJxQl8dLEj%252F8Srl5aNpQEnhMfLb8PrZSV&utm_source=pop&utm_medium=pdb&utm_campaign=normal&inviteCode=82V6R94BY'
+            },
+            {
+                category: 'shoe',
+                name: 'Kapital Knit Sweater',
+                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226701953426526238/tetznterz.png?ex=6625ba38&is=66134538&hm=1660926d15192ac091f38790f922c203ef9d43506907bef0875463c205e7c269&',
+                price: '41.33€',
+                qcPictures: 'https://qc.pandabuy.com/qc?g=680913895778&s=5047948886033&t=0',
+                buyLink: 'https://www.pandabuy.com/product?ra=462&url=PJ5p5VO1l8IzW0N%252BOA7dY2Mkt91dW7D8nskQ2a6JhY4LGRj7a36oXewO8Q0Xi1%252FYuveraov%252BMas5D1sc&utm_source=url&utm_medium=pdb&utm_campaign=normal&inviteCode=82V6R94BY'
+            },
+            {
+                category: 'shoe',
+                name: 'Broken Planet KNITTED SWEATER',
+                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226702372068266015/werc_wercwer.png?ex=6625ba9c&is=6613459c&hm=852db6ed83e05ca43a6f61457ced6c271aa6902a1f56bbc6702c90b0fe3dbd08&',
+                price: '27.05€',
+                qcPictures: 'https://qc.pandabuy.com/qc?g=6132840918&s=96063647155&t=0',
+                buyLink: 'https://www.pandabuy.com/product?ra=204&url=PJ8avyWKZSzUDdpFwxop0PCAPXnbjUovPdoH5%252B8Mi3EgfTF4J1BM4rrVj38Jpxw6Fyc2XbsK5WRmOo715XJ2VKGy2AC5ciQvbNUkyA%253D%253D&utm_source=url&utm_medium=pdb&utm_campaign=normal&inviteCode=82V6R94BY'
+            },
+            {
+                category: 'shoe',
+                name: 'Stone Island Lambwool Sweater',
+                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226703124618547240/ertvrtertv.png?ex=6625bb4f&is=6613464f&hm=c91e230bb71254d0a12b0b58212ac556e8fe0ca55dc28c7c326657ba5114946a&',
+                price: '34.67€',
+                qcPictures: 'https://qc.pandabuy.com/qc?g=726388707290&s=5041917833763&t=0',
+                buyLink: 'https://www.pandabuy.com/product?ra=39&url=PJ5r5VO1l8JjW0N%252BOA7dY2Mkt91dW7D8nskQ2a6JhY4LGRj7phP35FSRjTmcsX4oruRt2%252FZb0UAEvMyE&utm_source=url&utm_medium=pdb&utm_campaign=normal&inviteCode=82V6R94BY'
+            },
+            {
+                category: 'shoe',
+                name: 'Louis Vuitton Flower Sweater',
+                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226703618124681246/weqcrwerc.png?ex=6625bbc5&is=661346c5&hm=9b46dddfd80278b3e69caf810b3fba629da7e4ad35b2d98710370c792f1bee87&',
+                price: '63,66€',
+                qcPictures: 'https://qc.pandabuy.com/qc?g=6292194296&s=100429636356&t=0',
+                buyLink: 'https://www.pandabuy.com/product?ra=624&url=PJ8qvyWKZSzUDdqOwxop0PCAPXnbjUovPdoH5%252B8Mi3EgfTF4O%252FcXZw54%252BA5XqeMMT%252FYUE84P2iiazYivVQBE3VMLOoHDbnI5QS1rZg%253D%253D&utm_source=url&utm_medium=pdb&utm_campaign=normal&inviteCode=82V6R94BY'
+            },
         ];
         function addToList(category, item) {
     const list = document.querySelector(`#${category} .list`);
     const li = document.createElement('li');
-    li.classList.add(item.name.replace(/\s+/g, ''));
     li.innerHTML = `
         <img src="${item.picture}" alt="${item.name}">
         <h3>${item.name}</h3>
-        <p>${item.stats}</p>
-        <p>Project's completed: ${item.bestLanguage}</p> 
+        <p>Price: ${item.price}</p>
+        <a href="${item.buyLink}" target="_blank" class="btn" onclick="openLink(event, '${item.buyLink}')">Buy on Pandabuy</a>
+        <a href="${item.qcPictures}" target="_blank" class="btn" onclick="openLink(event, '${item.qcPictures}')">Watch Product Pictures</a>
         <div class="shine"></div>
         <div class="background">
             <div class="tiles">
@@ -863,6 +934,7 @@ h5 {
     `;
     list.appendChild(li);
 }
+
 function openLink(event, link) {
     event.preventDefault();
     window.open(link, '_blank');
@@ -870,20 +942,7 @@ function openLink(event, link) {
         data.forEach(item => {
             addToList(item.category, item);
         });
-    
-        document.querySelectorAll('nav ul li a').forEach(link => {
-    if (link.getAttribute('href') !== '../index.html') {
-        link.addEventListener('click', function (e) {
-            const target = document.querySelector(this.getAttribute('href'));
-            if(target) {
-                e.preventDefault();
-                target.scrollIntoView({
-                    behavior: 'smooth'
-                });
-            }
-        });
-    }
-});
+
     
         document.addEventListener("DOMContentLoaded", function () {
             document.addEventListener("selectstart", e => e.preventDefault());
