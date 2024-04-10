@@ -780,30 +780,6 @@
             width: 100%;
             text-align: center;
         }
-        .report-btn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background-color: rgba(255, 99, 71, 0.5); /* helles Rot */
-    border: none;
-    color: white;
-    padding: 5px 10px; /* mehr Polsterung für bessere Zentrierung */
-    text-align: center;
-    text-decoration: none;
-    display: flex; /* Flexbox für einfache Zentrierung */
-    justify-content: center; /* zentriert den Inhalt horizontal */
-    align-items: center; /* zentriert den Inhalt vertikal */
-    font-size: 10px;
-    border-radius: 0; /* make it square */
-    z-index: 9999;
-    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out; /* sanfter Übergang */
-}
-
-.report-btn:hover {
-    background-color: rgba(255, 99, 71, 0.7); /* etwas dunkleres Rot beim Überfahren */
-    transform: scale(1.02);
-}
-
 
     </style>
 </head>
@@ -1084,7 +1060,6 @@
         <p>Price: ${item.price}</p>
         <a href="${item.buyLink}" target="_blank" class="btn" onclick="openLink(event, '${item.buyLink}')">Buy on Pandabuy</a>
         <a href="${item.qcPictures}" target="_blank" class="btn" onclick="openLink(event, '${item.qcPictures}')">Watch Product Pictures</a>
-        <button id="reportButton" class="report-btn">⚠️</button>
         <div class="shine"></div>
         <div class="background">
             <div class="tiles">
