@@ -780,13 +780,38 @@
             width: 100%;
             text-align: center;
         }
+        .report-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(255, 99, 71, 0.5); /* helles Rot */
+    border: none;
+    color: white;
+    padding: 5px 10px; /* mehr Polsterung für bessere Zentrierung */
+    text-align: center;
+    text-decoration: none;
+    display: flex; /* Flexbox für einfache Zentrierung */
+    justify-content: center; /* zentriert den Inhalt horizontal */
+    align-items: center; /* zentriert den Inhalt vertikal */
+    font-size: 10px;
+    border-radius: 0; /* make it square */
+    z-index: 9999;
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out; /* sanfter Übergang */
+}
+
+.report-btn:hover {
+    background-color: rgba(255, 99, 71, 0.7); /* etwas dunkleres Rot beim Überfahren */
+    transform: scale(1.02);
+}
+
+
     </style>
 </head>
 <body>
     <header>
         <nav>
             <ul>
-                <li><a href="../index.html">Go Back</a></li>
+                <li><a href="../products.html">Go Back</a></li>
             </ul>
         </nav>
     </header>
@@ -812,7 +837,7 @@
             {
                 category: 'shoe',
                 name: 'Jordan 4 Retro (Uni. Blue)',
-                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226276759201251419/Jordan_4_Retro_TS_Cactus_Jack.png?ex=66242e3a&is=6611b93a&hm=68628d71c294bc306f88e97dfb8843ff3ee6469bf9e4110e5a7dcea8aab48815&',
+                picture: '../imgs/uniblue.webp',
                 price: '62.76€',
                 qcPictures: 'https://qc.pandabuy.com/qc?g=6513871406&s=107431519749&t=0',
                 buyLink: 'https://www.pandabuy.com/product?ra=224&url=PJ5u5VO1l8K3W0N%252B%252BNUxRLtlHuiuLG2fk9yHJbeI%252B8Tc9lCRLqK7K8iW%252BBZs2ae9Ot32XhfjHMPjtpbV60lXjsvnarurFX%252BcDiHlBg%253D%253D&utm_source=url&utm_medium=pdb&utm_campaign=normal&inviteCode=82V6R94BY'
@@ -820,7 +845,7 @@
             {
                 category: 'shoe',
                 name: 'Jordan 4 Retro (Kaws)',
-                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226277595629223988/kaws.png?ex=66242f01&is=6611ba01&hm=c1903203a38bda71cf5761cb43b7411542e0cd41206126a3496524a9245b0b32&',
+                picture: '../imgs/kaws.webp',
                 price: '72.52€',
                 qcPictures: 'https://qc.pandabuy.com/qc?g=6275046541&s=100958174505&t=0',
                 buyLink: 'https://www.pandabuy.com/product?url=PJ1cr632Oq2sti2KK8XMBGbKaiRF8Tn7da%252FAjo9g%252BJDL3Zn4CvWvHiHI%252F9z%252Fg%252FGUwmk9SKwCT2zYavoKPNdBe08cBwfsf6jUOu0m9g%253D%253D&spider_token=4572&inviteCode=82V6R94BY'
@@ -828,7 +853,7 @@
             {
                 category: 'shoe',
                 name: 'Jordan 4 Retro (Black Cat)',
-                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226279690419835021/blackcats.png?ex=662430f5&is=6611bbf5&hm=093fb76e983c87e31cd485e273ca15ce51e39e7df8bbb5a89f239919ac415de0&',
+                picture: '../imgs/blackcats.webp',
                 price: '59.97€',
                 qcPictures: 'https://qc.pandabuy.com/qc?g=6478477266&s=105185496995&t=0',
                 buyLink: 'https://www.pandabuy.com/product?url=PJ3u4H8fWzRK8ELBSIKDA9qocTaGu1lLc6%252BIS2%252BOfMOrI8NB7XL7uarLSskKrPqqyFxm%252BIb1jzR5yHTuaoxuu0I4uzoECKhDKMtnsQ%253D%253D&spider_token=4572&inviteCode=82V6R94BY'
@@ -836,7 +861,7 @@
             {
                 category: 'shoe',
                 name: 'Jordan 4 Retro (Red Thunder)',
-                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226343643464601733/redthunder.png?ex=66246c84&is=6611f784&hm=2f8fd9d5f4a239000c0f686ac0780355e409711d209dcf03f7fdea87e72becef&',
+                picture: '../imgs/redthunder.webp',
                 price: '62.76€',
                 qcPictures: 'https://qc.pandabuy.com/qc?g=6513871406&s=106514583776&t=0',
                 buyLink: 'https://www.pandabuy.com/product?ra=224&url=PJ0vapUDxf8a6N6%252FqnoO8g160tPN4vmoBMZXBgXdUwjgedU0FRavxSyvkDJjCOt0Cpy2koWOlppYaA3d7G%252F22Ro%252FLBFBHNUr2Xd5nA%253D%253D&utm_source=url&utm_medium=pdb&utm_campaign=normal&inviteCode=82V6R94BY'
@@ -844,7 +869,7 @@
             {
                 category: 'shoe',
                 name: 'Jordan 4 Retro (Thunder)',
-                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226343999636508745/thunder.png?ex=66246cd9&is=6611f7d9&hm=b4b03070b5c3a56b1ba6a757022cf0b295d7446d8ca5e22d4bfd112347a2649b&',
+                picture: '../imgs/thunder.webp',
                 price: '62.76€',
                 qcPictures: 'https://qc.pandabuy.com/qc?g=5791543640&s=96644119065&t=0',
                 buyLink: 'https://www.pandabuy.com/product?ra=158&url=PJ2j4NEg4isn%252Fva%252FBc2OMHBDECFSY%252Fqfh9wtpCI1FOXY9%252FzZBbUjzSiXTRKaDxxMLxbn64SLasPPPnWp%252B6ICCpwWYXJVJqdpbffjVQ%253D%253D&utm_source=pi&utm_medium=pdb&utm_campaign=normal&inviteCode=82V6R94BY'
@@ -852,7 +877,7 @@
             {
                 category: 'shoe',
                 name: 'Jordan 4 Retro (Levis Denim)',
-                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226344512415072317/levisdenim.png?ex=66246d54&is=6611f854&hm=b88b6c520cfa76187844a35b0e7fdf59c0bab3964f6833397db0cfb10e8a070b&',
+                picture: '../imgs/levisdenim.webp',
                 price: '55.87€',
                 qcPictures: 'https://qc.pandabuy.com/qc?g=6493178940&s=105520108809&t=0',
                 buyLink: 'https://www.pandabuy.com/product?ra=815&url=PJ9fmDFVd3v76X3r6aYsRxKKLjYDS%252BBFVp0GdAKYXCRMkx7ggYsexTg35po76WDWlDN3DzULotlCa2FRzXj0LKwIierEwqb8KNt9Mg%253D%253D&utm_source=url&utm_medium=pdb&utm_campaign=normal&inviteCode=82V6R94BY'
@@ -860,7 +885,7 @@
             {
                 category: 'shoe',
                 name: 'Jordan 4 Retro (Florida Gators)',
-                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226345039165391019/gators.png?ex=66246dd1&is=6611f8d1&hm=6f3148c0382dc37a6557f3c5ecee5cbdf7dae077679d21ca8a32b8bd22aafef4&',
+                picture: '../imgs/floridagators.webp',
                 price: '52.99€',
                 qcPictures: 'https://qc.pandabuy.com/qc?g=6301628665&s=100751626266&t=0',
                 buyLink: 'https://www.pandabuy.com/product?ra=70&url=PJ1qr0r2Oq2sti2KK8XMBGbKaiRF8Tn7da%252FAjo9g%252BJDL3Zn47itTmYJxbSW%252FaObrQ1VqEVYKN%252FmoJkDHMoFMN4t5Ri%252FI%252BxKlOItVkg%253D%253D&utm_source=url&utm_medium=pdb&utm_campaign=normal&inviteCode=82V6R94BY'
@@ -868,7 +893,7 @@
             {
                 category: 'shoe',
                 name: 'Jordan 4 Retro (Fear Pack)',
-                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226345619996803144/fearpack.png?ex=66246e5c&is=6611f95c&hm=5c932737fe947be98274fea33bc7ad85014224b588275241e706795f37bd55a8&',
+                picture: '../imgs/fearpack.webp',
                 price: '57.18€',
                 qcPictures: 'https://qc.pandabuy.com/qc?g=6388824531&s=0&t=0',
                 buyLink: 'https://www.pandabuy.com/product?url=PJ2e4NEY4isn%252Fva%252FBc2OMHBDECFSY%252Fqfh9wtpCI1FOXY9%252FzZ3ni%252FmPptruVx6RTGHJnyiiuduJqLg7OeslVOx8lxQ48PKjZ5uNGlqw%253D%253D&spider_token=4572&inviteCode=82V6R94BY'
@@ -876,7 +901,7 @@
             {
                 category: 'shoe',
                 name: 'Jordan 4 Retro (Seafoam)',
-                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226346965869268992/seafdoam.png?ex=66246f9d&is=6611fa9d&hm=0592308fcc111b0c0b19272d65d57bd8c1250be1afdc9a07644e3a366168f324&',
+                picture: '../imgs/seafoam.webp',
                 price: '55.78€',
                 qcPictures: 'https://qc.pandabuy.com/qc?g=6337195972&s=102862613726&t=0',
                 buyLink: 'https://www.pandabuy.com/product?url=PJ1brwD2Oq2sti2KK8XMBGbKaiRF8Tn7da%252FAjo9g%252BJDL3Zn48ln49JuZcP%252BX38mFJqnLoLV7yUbqyxmSLjg5h3dACojsBUvgs6GStg%253D%253D&utm_source=sto&utm_medium=pdb&utm_campaign=normal&inviteCode=82V6R94BY'
@@ -884,7 +909,7 @@
             {
                 category: 'shoe',
                 name: 'Jordan 4 Retro (Toro Bravo)',
-                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226347631958294528/torobrnavo.png?ex=6624703b&is=6611fb3b&hm=0211daa354a658baf9b158f7e044c8c0aaf4b47940d4769fb0a922805e3de688&',
+                picture: '../imgs/torobravo.webp',
                 price: '50.21€',
                 qcPictures: 'https://qc.pandabuy.com/qc?g=5605781268&s=82840477961&t=0',
                 buyLink: 'https://www.pandabuy.com/product?url=PJ1brwD2Oq2sti2KK8XMBGbKaiRF8Tn7da%252FAjo9g%252BJDL3Zn48ln49JuZcP%252BX38mFJqnLoLV7yUbqyxmSLjg5h3dACojsBUvgs6GStg%253D%253D&utm_source=sto&utm_medium=pdb&utm_campaign=normal&inviteCode=82V6R94BY'
@@ -892,7 +917,7 @@
             {
                 category: 'shoe',
                 name: 'Jordan 4 Retro (Infrared)',
-                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226348990124261386/infrare3d.png?ex=6624717f&is=6611fc7f&hm=2137be4528732440b98bebce091d14b129344b947c4e98eaeaa2091072d10cd4&',
+                picture: '../imgs/infrared.webp',
                 price: '52.99€',
                 qcPictures: 'https://qc.pandabuy.com/qc?g=5605781268&s=82619076341&t=0',
                 buyLink: 'https://www.pandabuy.com/product?ra=515&url=PJ7nkE4vFcXYUqEjVmxtPZLAmYId3a5mJrNgtVGNgP0S2ha5aisRrzCrvk62rTElMvXAuvfmMKFbt3u7qa%252BiVpYOygW3WImdtCbIZQ%253D%253D&utm_source=url&utm_medium=pdb&utm_campaign=normal&inviteCode=82V6R94BY'
@@ -900,7 +925,7 @@
             {
                 category: 'shoe',
                 name: 'Jordan 4 Retro (Metallic Orange)',
-                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226349927005683722/metallicorange.png?ex=6624725f&is=6611fd5f&hm=0d5f6305beed0bcb4f1269c47682ef02c27f6399a1a8e4a09f04977515496688&',
+                picture: '../imgs/metallicorange.webp',
                 price: '64.15€',
                 qcPictures: 'https://qc.pandabuy.com/qc?g=5416187188&s=107668639626&t=0',
                 buyLink: 'https://www.pandabuy.com/product?url=PJ3y4H8fbjRK8ELBSIKDA9qocTaGu1lLc6%252BIS2%252BOfMOrI8NBO4udcSxM3ezehQSjCAQO7IlkzuOlZbPEhaiL7GLzDeZMrp0laLqPig%253D%253D&utm_source=sto&utm_medium=pdb&utm_campaign=normal&inviteCode=82V6R94BY'
@@ -908,7 +933,7 @@
             {
                 category: 'shoe',
                 name: 'Jordan 4 Retro (Metallic Green)',
-                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226350569464004669/metallicgreen.png?ex=662472f8&is=6611fdf8&hm=6e2ee4c5bca376a7714c5131cfe093865d7d8d24b49dbe24ca008c7f0efe2d2a&',
+                picture: '../imgs/metallicgreen.webp',
                 price: '64.15€',
                 qcPictures: 'https://qc.pandabuy.com/qc?g=5416187188&s=96777485934&t=0',
                 buyLink: 'https://www.pandabuy.com/product?url=PJ3y4H8fbjRK8ELBSIKDA9qocTaGu1lLc6%252BIS2%252BOfMOrI8NBO4udcSxM3ezehQSjCAQO7IlkzuOlZbPEhaiL7GLzDeZMrp0laLqPig%253D%253D&utm_source=sto&utm_medium=pdb&utm_campaign=normal&inviteCode=82V6R94BY'
@@ -916,7 +941,7 @@
             {
                 category: 'shoe',
                 name: 'Jordan 4 Retro (Metallic Purple)',
-                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226350753174523954/metallicpurolke.png?ex=66247324&is=6611fe24&hm=cc42ef76fc4f50d1dabb34c805adb0fc64f39299a9b525352a67d64b4fedd407&',
+                picture: '../imgs/metallicpurple.webp',
                 price: '64.15€',
                 qcPictures: 'https://qc.pandabuy.com/qc?g=5416187188&s=78204360110&t=0',
                 buyLink: 'https://www.pandabuy.com/product?url=PJ3y4H8fbjRK8ELBSIKDA9qocTaGu1lLc6%252BIS2%252BOfMOrI8NBO4udcSxM3ezehQSjCAQO7IlkzuOlZbPEhaiL7GLzDeZMrp0laLqPig%253D%253D&utm_source=sto&utm_medium=pdb&utm_campaign=normal&inviteCode=82V6R94BY'
@@ -924,7 +949,7 @@
             {
                 category: 'shoe',
                 name: 'Jordan 4 Retro (Greater Paris)',
-                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226351509592346634/greaterparis.png?ex=662473d8&is=6611fed8&hm=c231b8019a338cb8698671d40252683f4405cc04895749f3869607087d46658d&',
+                picture: '../imgs/greaterparis.webp',
                 price: '65.55€',
                 qcPictures: 'https://qc.pandabuy.com/qc?g=4480422436&s=49871994313&t=0',
                 buyLink: 'https://www.pandabuy.com/product?ra=169&url=PJ8pvyWKZSzUDdpqwxop0PCAPXnbjUovPdoH5%252B8Mi3EgfTF4NGZlm6OzJwkAr4d48yCYhdFKEvlFKyxOrEVt467xyjmxfjJASLKnbw%253D%253D&utm_source=url&utm_medium=pdb&utm_campaign=normal&inviteCode=82V6R94BY'
@@ -932,7 +957,7 @@
             {
                 category: 'shoe',
                 name: 'Jordan 4 Retro (Game Royal)',
-                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226464132694278174/gameroyal.png?ex=6624dcbb&is=661267bb&hm=ce233b9daa5376cbd4c72f7a8e5f67ade2df9b304388044672bc6a116fba9bec&',
+                picture: '../imgs/gameroyal.webp',
                 price: '72.12€',
                 qcPictures: 'https://qc.pandabuy.com/qc?g=4629696344&s=76793825956&t=0',
                 buyLink: 'https://www.pandabuy.com/product?ra=661&url=PJ4b0LcoM8sqyU3wIVu2AUfbSETUXMAArNQaqT9qiw29LYzbfdFVTXJb29Q9WN%252BFI%252F7wmYQdLM0X5B902acJs3f6YbHJSEG8lzg%252FfA%253D%253D&utm_source=url&utm_medium=pdb&utm_campaign=normal&inviteCode=82V6R94BY'
@@ -940,7 +965,7 @@
             {
                 category: 'shoe',
                 name: 'Jordan 4 Retro (Union Guava Ice)',
-                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226465129198256171/guaveice.png?ex=6624dda9&is=661268a9&hm=4846100e93a474734edc0000c6ea2a263fd30bec996544b0c8dd8455d9b388be&',
+                picture: '../imgs/guavaice.webp',
                 price: '63.80€',
                 qcPictures: 'https://qc.pandabuy.com/qc?g=5416187188&s=92875636756&t=0',
                 buyLink: 'https://www.pandabuy.com/product?url=PJ2g4NFr4isn%252Fva%252FBc2OMHBDECFSY%252Fqfh9wtpCI1FOXY9%252FzZXmMECDIu5R0DW9lUzsVjoiK8oWgRIdE15EvAqb0VRVRLN8visBzq9w%253D%253D&utm_source=sto&utm_medium=pdb&utm_campaign=normal&inviteCode=82V6R94BY'
@@ -948,7 +973,7 @@
             {
                 category: 'shoe',
                 name: 'Jordan 4 Retro (Union Off Noir)',
-                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226465702353829949/offnoir.png?ex=6624de32&is=66126932&hm=eaf753d01f55de26afab961f1dbca308711e6ece81e109950ab907092efe7971&',
+                picture: '../imgs/offnoir.webp',
                 price: '63.80€',
                 qcPictures: 'https://qc.pandabuy.com/qc?g=5416187188&s=92875480761&t=0',
                 buyLink: 'https://www.pandabuy.com/product?url=PJ2g4NFr4isn%252Fva%252FBc2OMHBDECFSY%252Fqfh9wtpCI1FOXY9%252FzZXmMECDIu5R0DW9lUzsVjoiK8oWgRIdE15EvAqb0VRVRLN8visBzq9w%253D%253D&utm_source=sto&utm_medium=pdb&utm_campaign=normal&inviteCode=82V6R94BY'
@@ -956,7 +981,7 @@
             {
                 category: 'shoe',
                 name: 'Jordan 4 Retro (AMM Violet Ore)',
-                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226466659418636308/amm.png?ex=6624df16&is=66126a16&hm=490f273710502ad1ebbce1998b88508c1ce03f235ffe9a6a7c4f4df98911b24e&',
+                picture: '../imgs/amm.webp',
                 price: '69.35€',
                 qcPictures: 'https://qc.pandabuy.com/qc?g=5416187188&s=85872918379&t=0',
                 buyLink: 'https://www.pandabuy.com/product?url=PJ1or%252Fv2Oq2sti2KK8XMBGbKaiRF8Tn7da%252FAjo9g%252BJDL3Zn411%252FdyzaK8LyHjGOMRUGW2KOqEwqiKSkKblqabYwZubqhdWPL4ePZMQ%253D%253D&utm_source=sto&utm_medium=pdb&utm_campaign=normal&inviteCode=82V6R94BY'
@@ -964,7 +989,7 @@
             {
                 category: 'shoe',
                 name: 'Jordan 4 Retro (Off-White Sail)',
-                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226467548711878746/sail.png?ex=6624dfea&is=66126aea&hm=69f3c285ab7681ab7a831c9ee1aa85907c7a6a30014e5b016513badecfbcb4d8&',
+                picture: '../imgs/whitesail.webp',
                 price: '69.35€',
                 qcPictures: 'https://qc.pandabuy.com/qc?g=5416187188&s=87617078915&t=0',
                 buyLink: 'https://www.pandabuy.com/product?url=PJ7ckE4vFcXYUqMjVmxtPZLAmYId3a5mJrNgtVGNgP0S2ha5vUGKARarg9tFSC2Y64tnTGU91XKVtqxaHpqmaFRNFK%252F4vTthFxAOEA%253D%253D&utm_source=sto&utm_medium=pdb&utm_campaign=normal&inviteCode=82V6R94BY'
@@ -972,7 +997,7 @@
             {
                 category: 'shoe',
                 name: 'Jordan 4 Retro (Cool Gray)',
-                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226468812321193984/coolgray.png?ex=6624e117&is=66126c17&hm=062638df2e55eb827e0990efa300a988fa23ca70fa0f73c8cf96656e8695c078&',
+                picture: '../imgs/coolgray.webp',
                 price: '37.45€',
                 qcPictures: 'https://qc.pandabuy.com/qc?g=6513871406&s=108115994226&t=0',
                 buyLink: 'https://www.pandabuy.com/product?ra=224&url=PJ3d4H8fujRK8ELBSIKDA9qocTaGu1lLc6%252BIS2%252BOfMOrI8NBmVvRmYIaNJTV4unV90lOJR%252Fh55mdUVulunjZMsUSj0fZ3mfPoAuf6A%253D%253D&utm_source=url&utm_medium=pdb&utm_campaign=normal&inviteCode=82V6R94BY'
@@ -980,7 +1005,7 @@
             {
                 category: 'shoe',
                 name: 'Jordan 4 Retro (Eminem Carhartt)',
-                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226470330202193981/Eminemcarrahat.png?ex=6624e281&is=66126d81&hm=8af679f5e60fcafd6a10580328aab4f05b30e72227c153828d5e0b06a9c5f150&',
+                picture: '../imgs/eminemcarhartt.webp',
                 price: '62.41€',
                 qcPictures: 'https://qc.pandabuy.com/qc?g=6513871406&s=107584424848&t=0',
                 buyLink: 'https://www.pandabuy.com/product?ra=224&url=PJ3d4H8fujRK8ELBSIKDA9qocTaGu1lLc6%252BIS2%252BOfMOrI8NBmVvRmYIaNJTV4unV90lOJR%252Fh55mdUVulunjZMsUSj0fZ3mfPoAuf6A%253D%253D&utm_source=url&utm_medium=pdb&utm_campaign=normal&inviteCode=82V6R94BY'
@@ -988,7 +1013,7 @@
             {
                 category: 'shoe',
                 name: 'Jordan 4 Retro (Oreo)',
-                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226472527883407441/oreo.png?ex=6624e48d&is=66126f8d&hm=b54d129b1e25d802061e92bae28ce1ab8cdf26014aa3327220e66b800123d066&',
+                picture: '../imgs/oreo.webp',
                 price: '62.41€',
                 qcPictures: 'https://qc.pandabuy.com/qc?g=6513871406&s=107436489905&t=0',
                 buyLink: 'https://www.pandabuy.com/product?ra=224&url=PJ3d4H8fujRK8ELBSIKDA9qocTaGu1lLc6%252BIS2%252BOfMOrI8NBmVvRmYIaNJTV4unV90lOJR%252Fh55mdUVulunjZMsUSj0fZ3mfPoAuf6A%253D%253D&utm_source=url&utm_medium=pdb&utm_campaign=normal&inviteCode=82V6R94BY'
@@ -996,7 +1021,7 @@
             {
                 category: 'shoe',
                 name: 'Jordan 4 Retro (Bred)',
-                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226473176817733742/bred.png?ex=6624e528&is=66127028&hm=fdd146de4d146f9564934b23f12bda09851ce572878b97e6a8c04bf8ebb0fb37&',
+                picture: '../imgs/bred.webp',
                 price: '62.41€',
                 qcPictures: 'https://qc.pandabuy.com/qc?g=6513871406&s=107428542066&t=0',
                 buyLink: 'https://www.pandabuy.com/product?ra=224&url=PJ3d4H8fujRK8ELBSIKDA9qocTaGu1lLc6%252BIS2%252BOfMOrI8NBmVvRmYIaNJTV4unV90lOJR%252Fh55mdUVulunjZMsUSj0fZ3mfPoAuf6A%253D%253D&utm_source=url&utm_medium=pdb&utm_campaign=normal&inviteCode=82V6R94BY'
@@ -1004,7 +1029,7 @@
             {
                 category: 'shoe',
                 name: 'Jordan 4 Retro (Fire Red)',
-                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226473998792130570/firered.png?ex=6624e5ec&is=661270ec&hm=d4d075c3a394674b3984d30b0591a2530297b5f66e474fa84530f592f2334451&',
+                picture: '../imgs/firered.webp',
                 price: '63.80€',
                 qcPictures: 'https://qc.pandabuy.com/qc?g=5416187188&s=78204360056&t=0',
                 buyLink: 'https://www.pandabuy.com/product?url=PJ3c4H8fUjRK8ELBSIKDA9qocTaGu1lLc6%252BIS2%252BOfMOrI8NBO4udcSxM3ezehQSjCAQO7IlkzuOlZbPEhaiL7GLzDeZMrp0laLqPig%253D%253D&utm_source=sto&utm_medium=pdb&utm_campaign=normal&inviteCode=82V6R94BY'
@@ -1012,7 +1037,7 @@
             {
                 category: 'shoe',
                 name: 'Jordan 4 Retro (Red Cement)',
-                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226474650221940787/red_cement.png?ex=6624e687&is=66127187&hm=5f062894cce0f7b92fe9827bd0719d21b8f6b699d8ae132c82f68cc707d9843e&',
+                picture: '../imgs/redcement.webp',
                 price: '65.19€',
                 qcPictures: 'https://qc.pandabuy.com/qc?g=6340836349&s=119149775836&t=0',
                 buyLink: 'https://www.pandabuy.com/product?url=PJ4c0LcoMxsqyU3wIVu2AUfbSETUXMAArNQaqT9qiw29LYzbJnUrxCQuQN6ddZMy3r6MpxXJ2ENwLWjFY4TKRqHTKEIJjLSOVvKjlw%253D%253D&spider_token=4572&inviteCode=82V6R94BY'
@@ -1020,7 +1045,7 @@
             {
                 category: 'shoe',
                 name: 'Jordan 4 Retro (Pure Money)',
-                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226475274095300680/puremoney.png?ex=6624e71c&is=6612721c&hm=d7d34aa8426b0c0a03be0fec80a30f700cb8ca67442b0a43dd2139fb2b200027&',
+                picture: '../imgs/puremoney.webp',
                 price: '63.80€',
                 qcPictures: 'https://qc.pandabuy.com/qc?g=5416187188&s=82620538694&t=0',
                 buyLink: 'https://www.pandabuy.com/product?url=PJ3c4H8fUjRK8ELBSIKDA9qocTaGu1lLc6%252BIS2%252BOfMOrI8NBO4udcSxM3ezehQSjCAQO7IlkzuOlZbPEhaiL7GLzDeZMrp0laLqPig%253D%253D&utm_source=sto&utm_medium=pdb&utm_campaign=normal&inviteCode=82V6R94BY'
@@ -1028,7 +1053,7 @@
             {
                 category: 'shoe',
                 name: 'Jordan 4 Retro (Military Black)',
-                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226475722881761331/MILBNLACK.png?ex=6624e787&is=66127287&hm=664a1d0005be6f1a69e287c4154e0e6db71989421c45f67b2bd8a3a3f21876a1&',
+                picture: '../imgs/militaryblack.webp',
                 price: '63.80€',
                 qcPictures: 'https://qc.pandabuy.com/qc?g=5416187188&s=123723923245&t=0',
                 buyLink: 'https://www.pandabuy.com/product?url=PJ3c4H8fUjRK8ELBSIKDA9qocTaGu1lLc6%252BIS2%252BOfMOrI8NBO4udcSxM3ezehQSjCAQO7IlkzuOlZbPEhaiL7GLzDeZMrp0laLqPig%253D%253D&utm_source=sto&utm_medium=pdb&utm_campaign=normal&inviteCode=82V6R94BY'
@@ -1036,7 +1061,7 @@
             {
                 category: 'shoe',
                 name: 'Jordan 4 Retro (White Cement)',
-                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226476114084630538/whitecement.png?ex=6624e7e4&is=661272e4&hm=50118aada614a04befa46352aa0f0b57e08912161d576b482b7b24d92dfe3e70&',
+                picture: '../imgs/whitecement.webp',
                 price: '63.80€',
                 qcPictures: 'https://qc.pandabuy.com/qc?g=5416187188&s=78204360072&t=0',
                 buyLink: 'https://www.pandabuy.com/product?url=PJ3c4H8fUjRK8ELBSIKDA9qocTaGu1lLc6%252BIS2%252BOfMOrI8NBO4udcSxM3ezehQSjCAQO7IlkzuOlZbPEhaiL7GLzDeZMrp0laLqPig%253D%253D&utm_source=sto&utm_medium=pdb&utm_campaign=normal&inviteCode=82V6R94BY'
@@ -1044,7 +1069,7 @@
             {
                 category: 'shoe',
                 name: 'Jordan 4 Retro (SB Pine Green)',
-                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226476698867077150/sbpinegreen.png?ex=6624e86f&is=6612736f&hm=963d5db27351e2e947b7e6d3c57847a0a536ec8bbde680eeaa41c3b55b1ca07e&',
+                picture: '../imgs/sbpinegreen.webp',
                 price: '63.80€',
                 qcPictures: 'https://qc.pandabuy.com/qc?g=5416187188&s=96777329943&t=0',
                 buyLink: 'https://www.pandabuy.com/product?url=PJ3c4H8fUjRK8ELBSIKDA9qocTaGu1lLc6%252BIS2%252BOfMOrI8NBO4udcSxM3ezehQSjCAQO7IlkzuOlZbPEhaiL7GLzDeZMrp0laLqPig%253D%253D&utm_source=sto&utm_medium=pdb&utm_campaign=normal&inviteCode=82V6R94BY'
@@ -1059,6 +1084,7 @@
         <p>Price: ${item.price}</p>
         <a href="${item.buyLink}" target="_blank" class="btn" onclick="openLink(event, '${item.buyLink}')">Buy on Pandabuy</a>
         <a href="${item.qcPictures}" target="_blank" class="btn" onclick="openLink(event, '${item.qcPictures}')">Watch Product Pictures</a>
+        <button id="reportButton" class="report-btn">⚠️</button>
         <div class="shine"></div>
         <div class="background">
             <div class="tiles">
@@ -1164,6 +1190,11 @@ document.querySelectorAll('.list li').forEach(li => {
   observer.observe(li);
 });
     </script>
+                    <script>
+                        window.onerror = function() {
+                            window.location.href = "../error.html";
+                        }                    
+                    </script>
                         <footer>
                             <center>© 2024 - Verve | Jisll</center>
                         </footer>
