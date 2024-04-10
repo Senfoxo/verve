@@ -243,19 +243,6 @@ footer {
             width: 100%;
             text-align: center;
         }
-
-#error-code {
-    animation: msg 0.3s 13.7s linear forwards;
-    position: absolute;
-    top: 250%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 1000%;
-    max-width: 1000%;
-    text-align: center;
-    overflow: visible;
-    font-size: 15px;
-}
     </style>
 </head>
 <body>
@@ -283,7 +270,6 @@ footer {
             <div class="preloader__text">
                 <p class="preloader__msg">Unfortunately, an error has occurred. 😔❌</p>
                 <p class="preloader__msg1">⏳Please report this to Jisll on Discord and be patient until the issue is resolved.⏳</p>
-                <p id="error-code">Error Code: </p>
             </div>
         </div>
     </main>
@@ -336,65 +322,6 @@ footer {
             }, 5);
         });
     </script>
-        <script>
-            const fadeInUpAnimation = `
-              @keyframes fadeInUp {
-                from {
-                  opacity: 0;
-                  transform: translate3d(0, 100%, 0);
-                }
-              
-                to {
-                  opacity: 1;
-                  transform: none;
-                }
-              }
-            `;
-            const styleSheet = document.styleSheets[0];
-            styleSheet.insertRule(fadeInUpAnimation, styleSheet.cssRules.length);
-            
-            const observer = new IntersectionObserver((entries, observer) => {
-              entries.forEach((entry, index) => {
-                if (entry.isIntersecting) {
-                  entry.target.style.animation = `fadeInUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) ${index * 0.2}s forwards`;
-                  observer.unobserve(entry.target);
-                }
-              });
-            }, { threshold: 0.1 });
-            document.querySelectorAll('.list li').forEach(li => {
-              li.style.opacity = 0;
-              observer.observe(li);
-            });
-                </script>
-                    <script>
-                        var errorCode;
-                        switch (errorType) {
-                            case 'Internet':
-                                errorCode = 100; // Verbindungsfehler
-                                break;
-                            case 'System':
-                                errorCode = 200; // Betriebssystemfehler
-                                break;
-                            case 'Backend':
-                                errorCode = 300; // Datenbankfehler
-                                break;
-                            case 'Frontend':
-                                errorCode = 400; // UI-Fehler
-                                break;
-                            case 'Events':
-                                errorCode = 500; // Synchronisationsfehler
-                                break;
-                            case 'Code':
-                                errorCode = 600; // Syntaxfehler
-                                break;
-                            case 'Fehler':
-                                errorCode = 700; // Unbekannter Fehler
-                                break;
-                            default:
-                                errorCode = 'Uncommon Error';
-                        }
-                        document.getElementById('error-code').textContent += errorCode;
-                    </script>
                                     <footer>
                                         <center>© 2024 - Verve | Jisll</center>
                                     </footer>

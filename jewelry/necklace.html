@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/charts.css/dist/charts.min.css">
+    <link rel="stylesheet" href="../styles.css">
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <title>❤️ Pandabuy Spreadsheet By Jisll</title>
+    <style>
+        .center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
+        }
+        * {
+    cursor: none !important;
+}
+li {
+        position: relative;
+    }
+    .warning-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 99;
+}
+.warning-icon svg {
+    width: 28px;
+    height: 28px;
+}
+
+.report-icon {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        z-index: 99;
+    }
+    .report-icon svg {
+        width: 28px;
+        height: 28px;
+        fill: red;
+    }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="../products.html">Go Back</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="content">
+            <section id="clothing" class="list-section">
+                <div style="text-align: center;">
+                    <img class="center" src="https://cdn.discordapp.com/attachments/1226260557557141596/1226826392885399624/padnabuylogo.png?ex=66262e1d&is=6613b91d&hm=88a70133ffcbd54330d4daf6030980122bef141b492327b160f1b3761e12c0de&" alt="Logo" style="width: 350px;">
+                </div>
+                <ul class="list"></ul>   
+            </section>
+            <section id="shoe" class="list-section">
+                <h2>Necklace Collection</h2>
+                <ul class="list"></ul>
+        </div>
+    </main>
+    <div class="custom-cursor">
+        <div class="cursor-point"></div>
+        <div class="cursor-border"></div>
+    </div>
+    <script>
+        const data = [
+            {
+                category: 'shoe',
+                name: 'Ambush Pill Necklace [+9 Styles]',
+                picture: '../imgs/ambushpillnecklace.webp',
+                price: '19.10€',
+                qcPictures: 'https://qc.pandabuy.com/qc?g=617566927180&s=4525968535684&t=0',
+                buyLink: 'https://www.pandabuy.com/product?ra=466&url=https%3A%2F%2Fitem.taobao.com%2Fitem.htm%3Fid%3D617566927180&utm_source=url&utm_medium=pdb&utm_campaign=normal&inviteCode=82V6R94BY',
+            },
+            {
+                category: 'shoe',
+                name: 'Chrome Hearts Necklace',
+                picture: '../imgs/chromeheartsnecklace.webp',
+                price: '21.87€',
+                qcPictures: 'https://qc.pandabuy.com/qc?g=520734304514&s=3103434801603&t=0',
+                buyLink: 'https://www.pandabuy.com/product?ra=816&url=https%3A%2F%2Fitem.taobao.com%2Fitem.htm%3Fid%3D520734304514&utm_source=url&utm_medium=pdb&utm_campaign=normal&inviteCode=82V6R94BY'
+            },
+            {
+                category: 'shoe',
+                name: 'Chrome Hearts Cross [+14 Styles]',
+                picture: '../imgs/chromeheartscross.webp',
+                price: '4.98€',
+                qcPictures: 'https://qc.pandabuy.com/qc?g=610707371857&s=5057017144404&t=0',
+                buyLink: 'https://www.pandabuy.com/product?url=https%3A%2F%2Fitem.taobao.com%2Fitem.htm%3Fid%3D610707371857&inviteCode=82V6R94BY'
+            },
+            {
+                category: 'shoe',
+                name: 'Chrome Hearts [+31 Styles]',
+                picture: '../imgs/chromehearts.webp',
+                price: '4.43€',
+                qcPictures: 'https://qc.pandabuy.com/qc?g=550054720959&s=4352816109890&t=0',
+                buyLink: 'https://www.pandabuy.com/product?url=https%3A%2F%2Fitem.taobao.com%2Fitem.htm%3Fid%3D550054720959&utm_source=pop&utm_medium=pdb&utm_campaign=normal&inviteCode=82V6R94BY'
+            },
+            {
+                category: 'shoe',
+                name: 'Bape Necklace [+6 Styles]',
+                picture: '../imgs/bapenecklace.webp',
+                price: '3.46€',
+                qcPictures: 'https://qc.pandabuy.com/qc?g=549202513057&s=3627705742122&t=0',
+                buyLink: 'https://www.pandabuy.com/product?url=https%3A%2F%2Fitem.taobao.com%2Fitem.htm%3Fid%3D549202513057&inviteCode=82V6R94BY'
+            },
+            {
+                category: 'shoe',
+                name: 'Gengar Iced out [+5 Styles]',
+                picture: '../imgs/gengaricedout.webp',
+                price: '20.80€',
+                qcPictures: 'https://qc.pandabuy.com/qc?g=673468663894&s=5015545722832&t=0',
+                buyLink: 'https://www.pandabuy.com/product?url=https%3A%2F%2Fitem.taobao.com%2Fitem.htm%3Fid%3D673468663894&inviteCode=82V6R94BY'
+            },
+            {
+                category: 'shoe',
+                name: 'Homer Frank Ocean [+4 Styles]',
+                picture: '../imgs/homerfrankocean.webp',
+                price: '16.47€',
+                qcPictures: 'https://qc.pandabuy.com/qc?g=676101027217&s=5032295475898&t=0',
+                buyLink: 'https://www.pandabuy.com/product?url=https%3A%2F%2Fitem.taobao.com%2Fitem.htm%3Fid%3D676101027217&utm_source=pop&utm_medium=pdb&utm_campaign=normal&inviteCode=82V6R94BY'
+            },
+            {
+                category: 'shoe',
+                name: 'Homer Frank Ocean [+5 Styles]',
+                picture: '../imgs/homerfrankocean1.webp',
+                price: '20.62€',
+                qcPictures: 'https://qc.pandabuy.com/qc?g=691925693881&s=5085445914798&t=0',
+                buyLink: 'https://www.pandabuy.com/product?url=https%3A%2F%2Fitem.taobao.com%2Fitem.htm%3Fid%3D691925693881&inviteCode=82V6R94BY'
+            },
+            {
+                category: 'shoe',
+                name: 'Murakami Necklace [+24 Styles]',
+                picture: '../imgs/murakaminecklace.webp',
+                price: '3.05€',
+                qcPictures: 'https://qc.pandabuy.com/qc?g=579299686855&s=3899163793731&t=0',
+                buyLink: 'https://www.pandabuy.com/product?url=https%3A%2F%2Fitem.taobao.com%2Fitem.htm%3Fid%3D579299686855&inviteCode=82V6R94BY'
+            },
+        ];
+        function addToList(category, item) {
+    const list = document.querySelector(`#${category} .list`);
+    const li = document.createElement('li');
+    li.style.position = 'relative';
+    li.innerHTML = `
+        <img src="${item.picture}" alt="${item.name}">
+        <h3>${item.name}</h3>
+        <p>Price: ${item.price}</p>
+        <a href="${item.buyLink}" target="_blank" class="btn">Buy on Pandabuy</a>
+        <a href="${item.qcPictures}" target="_blank" class="btn">Watch Product Pictures</a>
+        ${item.warning === 'yes' ? '<div class="warning-icon" title="Potential Risk\'s"><svg class="w-12 h-12 fill-current text-yellow-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M12 5.99L19.53 19H4.47L12 5.99M12 2L1 21h22L12 2zm1 14h-2v2h2v-2zm0-6h-2v4h2v-4z"/></svg></div>' : ''}
+        <div class="shine"></div>
+        <div class="background">
+            <div class="tiles">
+                <div class="tile tile-1"></div>
+                <div class="tile tile-2"></div>
+                <div class="tile tile-3"></div>
+                <div class="tile tile-4"></div>
+                <div class="tile tile-5"></div>
+                <div class="tile tile-6"></div>
+                <div class="tile tile-7"></div>
+                <div class="tile tile-8"></div>
+                <div class="tile tile-9"></div>
+                <div class="tile tile-10"></div>
+            </div>
+            <div class="line line-1"></div>
+            <div class="line line-2"></div>
+            <div class="line line-3"></div>
+        </div>
+    `;
+    list.appendChild(li);
+
+    if (item.warning === 'yes') {
+        li.querySelector('.btn').addEventListener('click', function(event) {
+            openLinkWithWarning(event, item.buyLink);
+        });
+    } else {
+        li.querySelector('.btn').addEventListener('click', function(event) {
+            openLink(event, item.buyLink);
+        });
+    }
+}
+
+function openLink(event, link) {
+    event.preventDefault();
+    window.open(link, '_blank');
+}
+
+        document.addEventListener("DOMContentLoaded", function () {
+            document.addEventListener("selectstart", e => e.preventDefault());
+            document.addEventListener("contextmenu", e => e.preventDefault());
+            document.addEventListener("keydown", e => {
+                if (e.keyCode === 123 || (e.ctrlKey && e.shiftKey && e.keyCode === 73) || (e.ctrlKey && e.keyCode === 85)) {
+                    e.preventDefault();
+                }
+            });
+    
+            const cursorPoint = document.querySelector(".cursor-point");
+            const cursorBorder = document.querySelector(".cursor-border");
+            let mouseX = 0;
+            let mouseY = 0;
+            let borderX = 0;
+            let borderY = 0;
+    
+            document.addEventListener("mousemove", e => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+                cursorPoint.style.left = mouseX + "px";
+                cursorPoint.style.top = mouseY + "px";
+            });
+    
+            function animateBorder() {
+                borderX += (mouseX - borderX) * 0.05;
+                borderY += (mouseY - borderY) * 0.05;
+                cursorBorder.style.left = `${borderX}px`;
+                cursorBorder.style.top = `${borderY}px`;
+                requestAnimationFrame(animateBorder);
+            }
+            animateBorder();
+        });
+    
+        document.querySelector(".day-night input").addEventListener("change", () => {
+            document.querySelector("body").classList.add("toggle");
+            setTimeout(() => {
+                document.querySelector("body").classList.toggle("light");
+                setTimeout(
+                    () => document.querySelector("body").classList.remove("toggle"),
+                    10
+                );
+            }, 5);
+        });
+    </script>
+        <script>
+            const fadeInUpAnimation = `
+              @keyframes fadeInUp {
+                from {
+                  opacity: 0;
+                  transform: translate3d(0, 100%, 0);
+                }
+              
+                to {
+                  opacity: 1;
+                  transform: none;
+                }
+              }
+            `;
+            const styleSheet = document.styleSheets[0];
+            styleSheet.insertRule(fadeInUpAnimation, styleSheet.cssRules.length);
+            
+            const observer = new IntersectionObserver((entries, observer) => {
+              entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                  entry.target.style.animation = `fadeInUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) ${index * 0.2}s forwards`;
+                  observer.unobserve(entry.target);
+                }
+              });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.list li').forEach(li => {
+              li.style.opacity = 0;
+              observer.observe(li);
+            });
+                </script>
+                                <script>
+                                    window.onerror = function() {
+                                        window.location.href = "../error.html";
+                                    }                    
+                                </script>
+<script>
+    function openLinkWithWarning(event, link) {
+        event.preventDefault();
+        const popup = document.createElement('div');
+        popup.style.position = 'fixed';
+        popup.style.top = '0';
+        popup.style.left = '0';
+        popup.style.width = '100%';
+        popup.style.height = '100%';
+        popup.style.display = 'flex';
+        popup.style.justifyContent = 'center';
+        popup.style.alignItems = 'center';
+        popup.style.backgroundColor = 'rgba(88, 88, 88, 0.082)';
+        popup.style.backdropFilter = 'blur(20px)';
+        popup.style.zIndex = '100';
+        popup.innerHTML = `
+            <div class="w-full md:w-1/3 mx-auto">
+                <div class="flex flex-col p-5 rounded-lg shadow" style="background-color: #1d1d20; color: #ffffff">
+                    <div class="flex flex-col items-center text-center" style="color: #ffffff;">
+                        <div class="inline-block p-4 bg-transparent rounded-full">
+                            <svg class="w-12 h-12 fill-current text-yellow-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M12 5.99L19.53 19H4.47L12 5.99M12 2L1 21h22L12 2zm1 14h-2v2h2v-2zm0-6h-2v4h2v-4z"/></svg>
+                        </div>
+                        <h2 class="mt-2 font-semibold" style="color: #ffffff;">WARNING</h2>
+                        <p class="mt-2 text-sm leading-relaxed" style="color: #ffffff;">Products may have risks and could be legally sensitive. Electronics may get easily damaged with no seller compensation. Please order carefully.</p>
+                    </div>
+
+                    <div class="flex items-center mt-3">
+                        <button id="cancel" class="flex-1 px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white text-sm font-medium rounded-md">
+                            Cancel
+                        </button>
+
+                        <button id="agree" class="flex-1 px-4 py-2 ml-2 bg-yellow-500 hover:bg-yellow-600 text-white text-sm font-medium rounded-md">
+                            Agree
+                        </button>
+                    </div>
+                </div>
+            </div>`;
+        document.body.appendChild(popup);
+                                    
+        document.getElementById('agree').addEventListener('click', function() {
+        window.open(link, '_blank');
+        document.body.removeChild(popup);
+    });
+                                    
+    document.getElementById('cancel').addEventListener('click', function() {
+        document.body.removeChild(popup);
+    });
+    }
+                                    
+    data.forEach(item => {
+        addToList(item.category, item);
+    });
+</script>
+                                    <footer>
+                                        <center>© 2024 - Verve | Jisll</center>
+                                    </footer>
+</body>
+</html>

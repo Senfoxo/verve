@@ -3,783 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/charts.css/dist/charts.min.css">
+    <link rel="stylesheet" href="../styles.css">
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <title>❤️ Pandabuy Spreadsheet By Jisll</title>
     <style>
-        * {
-            font-family: 'Poppins', sans-serif;
-        }
-        :root {
-            --background-color: #18181B;
-            --text-color: #A1A1AA;
-            --card-background-color: rgba(255, 255, 255, .015);
-            --card-border-color: rgba(255, 255, 255, 0.1);
-            --card-box-shadow-1: rgba(0, 0, 0, 0.05);
-            --card-box-shadow-1-y: 3px;
-            --card-box-shadow-1-blur: 6px;
-            --card-box-shadow-2: rgba(0, 0, 0, 0.1);
-            --card-box-shadow-2-y: 8px;
-            --card-box-shadow-2-blur: 15px;
-            --card-label-color: #FFFFFF;
-            --card-shine-opacity: .1;
-            --card-shine-gradient: conic-gradient(from 205deg at 50% 50%, rgba(255, 255, 255, 0) 0deg, #ffffff 25deg, rgba(255, 255, 255, 0.637) 295deg, rgba(255, 255, 255, 0) 360deg);
-            --card-line-color: #ffffff11;
-            --card-tile-color: rgba(184, 184, 184, 0.05);
-            --card-hover-border-color: rgba(255, 255, 255, 0.2);
-            --card-hover-box-shadow-1: rgba(0, 0, 0, 0.04);
-            --card-hover-box-shadow-1-y: 5px;
-            --card-hover-box-shadow-1-blur: 10px;
-            --card-hover-box-shadow-2: rgba(0, 0, 0, 0.3);
-            --card-hover-box-shadow-2-y: 15px;
-            --card-hover-box-shadow-2-blur: 25px;
-            --blur-opacity: .01;
-            --mouse-x: 0px;
-            --mouse-y: 0px;
-        }
-        .custom-cursor {
-            position: fixed;
-            top: var(--mouse-y);
-            left: var(--mouse-x);
-            pointer-events: none;
-            z-index: 9999;
-            transform: translate(-50%, -50%);
-            transition: top 0.1s ease-in-out, left 0.1s ease-in-out;
-        }
-        .cursor-point {
-            width: 5px;
-            height: 5px;
-            background-color: #ffffff;
-            border-radius: 50%;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-        .cursor-border {
-            width: 20px;
-            height: 20px;
-            background-color: #ffffff44;
-            border-radius: 50%;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-        body {
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
-            color: #fff;
-            cursor: none;
-        }
-        header {
-            background-color: #18181B;
-            padding: 20px;
-            text-align: center;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 999;
-        }
-        nav ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-        }
-        nav ul li {
-            margin: 0 10px;
-        }
-        nav ul li a {
-            color: #fff;
-            text-decoration: none;
-            padding: 5px 10px;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-        nav ul li a:hover {
-            background-color: #333;
-        }
-        main {
-            display: flex;
-            justify-content: center;
-            padding-top: 80px;
-        }
-        .content {
-            max-width: 100%;
-            padding: 20px 0;
-        }
-        .list-section {
-            margin-bottom: 40px;
-            text-align: center;
-        }
-        .list-section h2 {
-            font-size: 32px;
-            font-weight: 600;
-            margin-bottom: 30px;
-        }
-        .list {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-            list-style-type: none;
-            padding: 0;
-        }
-        .list li {
-            background-color: var(--background-color);
-            box-shadow: 0px var(--card-box-shadow-1-y) var(--card-box-shadow-1-blur) var(--card-box-shadow-1), 0px var(--card-box-shadow-2-y) var(--card-box-shadow-2-blur) var(--card-box-shadow-2), 0 0 0 1px var(--card-border-color);
-            padding: 26px;
-            border-radius: 15px;
-            cursor: pointer;
-            position: relative;
-            transition: box-shadow .25s;
-            width: calc(16.66% - 20px);
-            margin: 10px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            animation-name: fadeInUp;
-            animation-duration: 2s;
-            animation-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
-        }
-        .list li:visible {
-        animation-play-state: running;
-    }
-        .list li::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: 15px;
-            background-color: var(--card-background-color);
-        }
-        .list li img {
-            width: 70%;
-            height: auto;
-            object-fit: cover;
-            border-radius: 10px;
-            margin-bottom: 15px;
-            z-index: 3;
-            pointer-events: none;
-        }
-        .list li h3 {
-            z-index: 2;
-            position: relative;
-            margin: 12px 0 4px 0;
-            font-family: inherit;
-            font-weight: 600;
-            font-size: 14px;
-            line-height: 2;
-            color: var(--card-label-color);
-        }
-        .list li p {
-            z-index: 2;
-            position: relative;
-            margin: 0;
-            font-size: 14px;
-            line-height: 1.7;
-            color: var(--text-color);
-        }
-        .list li .shine {
-            border-radius: inherit;
-            position: absolute;
-            inset: 0;
-            z-index: 1;
-            overflow: hidden;
-            opacity: 0;
-            transition: opacity .5s;
-        }
-        .list li .shine:before {
-            content: '';
-            width: 150%;
-            padding-bottom: 150%;
-            border-radius: 50%;
-            position: absolute;
-            left: 50%;
-            bottom: 55%;
-            filter: blur(35px);
-            opacity: var(--card-shine-opacity);
-            transform: translateX(-50%);
-            background-image: var(--card-shine-gradient);
-        }
-        .list li .background {
-            border-radius: inherit;
-            position: absolute;
-            inset: 0;
-            overflow: hidden;
-            -webkit-mask-image: radial-gradient(circle at 60% 5%, black 0%, black 15%, transparent 60%);
-            mask-image: radial-gradient(circle at 60% 5%, black 0%, black 15%, transparent 60%);
-        }
-        .list li .background .tiles {
-            opacity: 0;
-            transition: opacity .25s;
-        }
-        .list li .background .tiles .tile {
-            position: absolute;
-            background-color: var(--card-tile-color);
-            animation-duration: 8s;
-            animation-iteration-count: infinite;
-            opacity: 0;
-        }
-        .list li .background .tiles .tile.tile-4,
-        .list li .background .tiles .tile.tile-6,
-        .list li .background .tiles .tile.tile-10 {
-            animation-delay: -2s;
-        }
-        .list li .background .tiles .tile.tile-3,
-        .list li .background .tiles .tile.tile-5,
-        .list li .background .tiles .tile.tile-8 {
-            animation-delay: -4s;
-        }
-        .list li .background .tiles .tile.tile-2,
-        .list li .background .tiles .tile.tile-9 {
-            animation-delay: -6s;
-        }
-        .list li .background .tiles .tile.tile-1 {
-            top: 0;
-            left: 0;
-            height: 10%;
-            width: 22.5%;
-        }
-        .list li .background .tiles .tile.tile-2 {
-            top: 0;
-            left: 22.5%;
-            height: 10%;
-            width: 27.5%;
-        }
-        .list li .background .tiles .tile.tile-3 {
-            top: 0;
-            left: 50%;
-            height: 10%;
-            width: 27.5%;
-        }
-        .list li .background .tiles .tile.tile-4 {
-            top: 0;
-            left: 77.5%;
-            height: 10%;
-            width: 22.5%;
-        }
-        .list li .background .tiles .tile.tile-5 {
-            top: 10%;
-            left: 0;
-            height: 22.5%;
-            width: 22.5%;
-        }
-        .list li .background .tiles .tile.tile-6 {
-            top: 10%;
-            left: 22.5%;
-            height: 22.5%;
-            width: 27.5%;
-        }
-        .list li .background .tiles .tile.tile-7 {
-            top: 10%;
-            left: 50%;
-            height: 22.5%;
-            width: 27.5%;
-        }
-        .list li .background .tiles .tile.tile-8 {
-            top: 10%;
-            left: 77.5%;
-            height: 22.5%;
-            width: 22.5%;
-        }
-        .list li .background .tiles .tile.tile-9 {
-            top: 32.5%;
-            left: 50%;
-            height: 22.5%;
-            width: 27.5%;
-        }
-        .list li .background .tiles .tile.tile-10 {
-            top: 32.5%;
-            left: 77.5%;
-            height: 22.5%;
-            width: 22.5%;
-        }
-        @keyframes tile {
-            0%,
-            12.5%,
-            100% {
-                opacity: 1;
-            }
-            25%,
-            82.5% {
-                opacity: 0;
-            }
-        }
-        .list li .background .line {
-            position: absolute;
-            inset: 0;
-            opacity: 0;
-            transition: opacity .35s;
-        }
-        .list li .background .line:before,
-        .list li .background .line:after {
-            content: '';
-            position: absolute;
-            background-color: var(--card-line-color);
-            transition: transform .35s;
-        }
-        .list li .background .line:before {
-            left: 0;
-            right: 0;
-            height: 1px;
-            transform-origin: 0 50%;
-            transform: scaleX(0);
-        }
-        .list li .background .line:after {
-            top: 0;
-            bottom: 0;
-            width: 1px;
-            transform-origin: 50% 0;
-            transform: scaleY(0);
-        }
-        .list li .background .line.line-1:before {
-            top: 10%;
-        }
-        .list li .background .line.line-1:after {
-            left: 22.5%;
-        }
-        .list li .background .line.line-1:before,
-        .list li .background .line.line-1:after {
-            transition-delay: .3s;
-        }
-        .list li .background .line.line-2:before {
-            top: 32.5%;
-        }
-        .list li .background .line.line-2:after {
-            left: 50%;
-        }
-        .list li .background .line.line-2:before,
-        .list li .background .line.line-2:after {
-            transition-delay: .15s;
-        }
-        .list li .background .line.line-3:before {
-            top: 55%;
-        }
-        .list li .background .line.line-3:after {
-            right: 22.5%;
-        }
-        .list li:hover {
-            box-shadow: 0px 3px 6px var(--card-hover-box-shadow-1), 0px var(--card-hover-box-shadow-2-y) var(--card-hover-box-shadow-2-blur) var(--card-hover-box-shadow-2), 0 0 0 1px var(--card-hover-border-color);
-        }
-        .list li:hover .shine {
-            opacity: 1;
-            transition-duration: .5s;
-            transition-delay: 0s;
-        }
-        .list li:hover .background .tiles {
-            opacity: 1;
-            transition-delay: .25s;
-        }
-        .list li:hover .background .tiles .tile {
-            animation-name: tile;
-        }
-        .list li:hover .background .line {
-            opacity: 1;
-            transition-duration: .15s;
-        }
-        .list li:hover .background .line:before {
-            transform: scaleX(1);
-        }
-        .list li:hover .background .line:after {
-            transform: scaleY(1);
-        }
-        .list li:hover .background .line.line-1:before,
-        .list li:hover .background .line.line-1:after {
-            transition-delay: .0s;
-        }
-        .list li:hover .background .line.line-2:before,
-        .list li:hover .background .line.line-2:after {
-            transition-delay: .15s;
-        }
-        .list li:hover .background .line.line-3:before,
-        .list li:hover .background .line.line-3:after {
-            transition-delay: .3s;
-        }
-        .day-night {
-            cursor: pointer;
-            position: absolute;
-            right: 20px;
-            top: 20px;
-            opacity: .3;
-        }
-        .day-night input {
-            display: none;
-        }
-        .day-night input+div {
-            border-radius: 50%;
-            width: 20px;
-            height: 20px;
-            position: relative;
-            box-shadow: inset 8px -8px 0 0 var(--text-color);
-            transform: scale(1) rotate(-2deg);
-            transition: box-shadow .5s ease 0s, transform .4s ease .1s;
-        }
-        .day-night input+div:before {
-            content: '';
-            width: inherit;
-            height: inherit;
-            border-radius: inherit;
-            position: absolute;
-            left: 0;
-            top: 0;
-            transition: background-color .3s ease;
-        }
-        .day-night input+div:after {
-            content: '';
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            margin: -3px 0 0 -3px;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            box-shadow: 0 -23px 0 var(--text-color), 0 23px 0 var(--text-color), 23px 0 0 var(--text-color), -23px 0 0 var(--text-color), 15px 15px 0 var(--text-color), -15px 15px 0 var(--text-color), 15px -15px 0 var(--text-color), -15px -15px 0 var(--text-color);
-            transform: scale(0);
-            transition: all .3s ease;
-        }
-        .day-night input:checked+div {
-            box-shadow: inset 20px -20px 0 0 var(--text-color);
-            transform: scale(.5) rotate(0deg);
-            transition: transform .3s ease .1s, box-shadow .2s ease 0s;
-        }
-        .day-night input:checked+div:before {
-            background: var(--text-color);
-            transition: background-color .3s ease .1s;
-        }
-        .day-night input:checked+div:after {
-            transform: scale(1);
-            transition: transform .5s ease .15s;
-        }
-        html {
-            box-sizing: border-box;
-            -webkit-font-smoothing: antialiased;
+        .center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
         }
         * {
-            box-sizing: inherit;
-            cursor: none;
-        }
-        *:before,
-        *:after {
-            box-sizing: inherit;
-        }
-        body {
-            min-height: 100vh;
-            display: flex;
-            font-family: 'Inter', Arial;
-            justify-content: center;
-            align-items: center;
-            background-color: var(--background-color);
-            overflow-y: visible;
-            overflow-x: hidden;
-        }
-        body:before {
-            content: '';
-            position: absolute;
-            inset: 0 -60% 65% -60%;
-            background-image: radial-gradient(ellipse at top, #ffffff 0%, var(--background-color) 50%);
-            opacity: var(--blur-opacity);
-        }
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(2, 240px);
-            grid-gap: 32px;
-            position: relative;
-            z-index: 1;
-        }
-        .card {
-            background-color: var(--background-color);
-            box-shadow: 0px var(--card-box-shadow-1-y) var(--card-box-shadow-1-blur) var(--card-box-shadow-1), 0px var(--card-box-shadow-2-y) var(--card-box-shadow-2-blur) var(--card-box-shadow-2), 0 0 0 1px var(--card-border-color);
-            padding: 56px 16px 16px 16px;
-            border-radius: 15px;
-            cursor: pointer;
-            position: relative;
-            transition: box-shadow .25s;
-        }
-        .card::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: 15px;
-            background-color: var(--card-background-color);
-        }
-        .card h4 {
-            z-index: 2;
-            position: relative;
-            margin: 12px 0 4px 0;
-            font-family: inherit;
-            font-weight: 600;
-            font-size: 14px;
-            line-height: 2;
-            color: var(--card-label-color);
-        }
-        .card p {
-            z-index: 2;
-            position: relative;
-            margin: 0;
-            font-size: 14px;
-            line-height: 1.7;
-            color: var(--text-color);
-        }
-        .card .shine {
-            border-radius: inherit;
-            position: absolute;
-            inset: 0;
-            z-index: 1;
-            overflow: hidden;
-            opacity: 0;
-            transition: opacity .5s;
-        }
-        .card .shine:before {
-            content: '';
-            width: 150%;
-            padding-bottom: 150%;
-            border-radius: 50%;
-            position: absolute;
-            left: 50%;
-            bottom: 55%;
-            filter: blur(35px);
-            opacity: var(--card-shine-opacity);
-            transform: translateX(-50%);
-            background-image: var(--card-shine-gradient);
-        }
-        .card .background {
-            border-radius: inherit;
-            position: absolute;
-            inset: 0;
-            overflow: hidden;
-            -webkit-mask-image: radial-gradient(circle at 60% 5%, black 0%, black 15%, transparent 60%);
-            mask-image: radial-gradient(circle at 60% 5%, black 0%, black 15%, transparent 60%);
-        }
-        .card .background .tiles {
-            opacity: 0;
-            transition: opacity .25s;
-        }
-        .card .background .tiles .tile {
-            position: absolute;
-            background-color: var(--card-tile-color);
-            animation-duration: 8s;
-            animation-iteration-count: infinite;
-            opacity: 0;
-        }
-        .card .background .tiles .tile.tile-4,
-        .card .background .tiles .tile.tile-6,
-        .card .background .tiles .tile.tile-10 {
-            animation-delay: -2s;
-        }
-        .card .background .tiles .tile.tile-3,
-        .card .background .tiles .tile.tile-5,
-        .card .background .tiles .tile.tile-8 {
-            animation-delay: -4s;
-        }
-        .card .background .tiles .tile.tile-2,
-        .card .background .tiles .tile.tile-9 {
-            animation-delay: -6s;
-        }
-        .card .background .tiles .tile.tile-1 {
-            top: 0;
-            left: 0;
-            height: 10%;
-            width: 22.5%;
-        }
-        .card .background .tiles .tile.tile-2 {
-            top: 0;
-            left: 22.5%;
-            height: 10%;
-            width: 27.5%;
-        }
-        .card .background .tiles .tile.tile-3 {
-            top: 0;
-            left: 50%;
-            height: 10%;
-            width: 27.5%;
-        }
-        .card .background .tiles .tile.tile-4 {
-            top: 0;
-            left: 77.5%;
-            height: 10%;
-            width: 22.5%;
-        }
-        .card .background .tiles .tile.tile-5 {
-            top: 10%;
-            left: 0;
-            height: 22.5%;
-            width: 22.5%;
-        }
-        .card .background .tiles .tile.tile-6 {
-            top: 10%;
-            left: 22.5%;
-            height: 22.5%;
-            width: 27.5%;
-        }
-        .card .background .tiles .tile.tile-7 {
-            top: 10%;
-            left: 50%;
-            height: 22.5%;
-            width: 27.5%;
-        }
-        .card .background .tiles .tile.tile-8 {
-            top: 10%;
-            left: 77.5%;
-            height: 22.5%;
-            width: 22.5%;
-        }
-        .card .background .tiles .tile.tile-9 {
-            top: 32.5%;
-            left: 50%;
-            height: 22.5%;
-            width: 27.5%;
-        }
-        .card .background .tiles .tile.tile-10 {
-            top: 32.5%;
-            left: 77.5%;
-            height: 22.5%;
-            width: 22.5%;
-        }
-        @keyframes tile {
-            0%,
-            12.5%,
-            100% {
-                opacity: 1;
-            }
-            25%,
-            82.5% {
-                opacity: 0;
-            }
-        }
-        .card .background .line {
-            position: absolute;
-            inset: 0;
-            opacity: 0;
-            transition: opacity .35s;
-        }
-        .card .background .line:before,
-        .card .background .line:after {
-            content: '';
-            position: absolute;
-            background-color: var(--card-line-color);
-            transition: transform .35s;
-        }
-        .card .background .line:before {
-            left: 0;
-            right: 0;
-            height: 1px;
-            transform-origin: 0 50%;
-            transform: scaleX(0);
-        }
-        .card .background .line:after {
-            top: 0;
-            bottom: 0;
-            width: 1px;
-            transform-origin: 50% 0;
-            transform: scaleY(0);
-        }
-        .card .background .line.line-1:before {
-            top: 10%;
-        }
-        .card .background .line.line-1:after {
-            left: 22.5%;
-        }
-        .card .background .line.line-1:before,
-        .card .background .line.line-1:after {
-            transition-delay: .3s;
-        }
-        .card .background .line.line-2:before {
-            top: 32.5%;
-        }
-        .card .background .line.line-2:after {
-            left: 50%;
-        }
-        .card .background .line.line-2:before,
-        .card .background .line.line-2:after {
-            transition-delay: .15s;
-        }
-        .card .background .line.line-3:before {
-            top: 55%;
-        }
-        .card .background .line.line-3:after {
-            right: 22.5%;
-        }
-        .card:hover {
-            box-shadow: 0px 3px 6px var(--card-hover-box-shadow-1), 0px var(--card-hover-box-shadow-2-y) var(--card-hover-box-shadow-2-blur) var(--card-hover-box-shadow-2), 0 0 0 1px var(--card-hover-border-color);
-        }
-        .card:hover .shine {
-            opacity: 1;
-            transition-duration: .5s;
-            transition-delay: 0s;
-        }
-        .card:hover .background .tiles {
-            opacity: 1;
-            transition-delay: .25s;
-        }
-        .card:hover .background .tiles .tile {
-            animation-name: tile;
-        }
-        .card:hover .background .line {
-            opacity: 1;
-            transition-duration: .15s;
-        }
-        .card:hover .background .line:before {
-            transform: scaleX(1);
-        }
-        .card:hover .background .line:after {
-            transform: scaleY(1);
-        }
-        .card:hover .background .line.line-1:before,
-        .card:hover .background .line.line-1:after {
-            transition-delay: .0s;
-        }
-        .card:hover .background .line.line-2:before,
-        .card:hover .background .line.line-2:after {
-            transition-delay: .15s;
-        }
-        .card:hover .background .line.line-3:before,
-        .card:hover .background .line.line-3:after {
-            transition-delay: .3s;
-        }
-        .btn {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 10px 24px;
-    color: #000000;
-    background-color: #ffffff;
-    border: none;
-    border-radius: 5px;
-    text-decoration: none;
-    text-align: center;
-    transition: all 0.3s ease;
-    z-index: 3;
-    font-size: 12px;
-    font-weight: bold;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    cursor: none !important;
 }
-
-.btn:hover {
-    background-color: #ffffffb2;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
-        @keyframes fadeInUp {
-        from {
-            opacity: 0;
-            transform: translate3d(0, 100%, 0);
-        }
-
-        to {
-            opacity: 1;
-            transform: none;
-        }
+li {
+        position: relative;
     }
-    footer {
-            position: fixed;
-            left: 0;
-            bottom: 20px;
-            width: 100%;
-            text-align: center;
-        }
     </style>
 </head>
 <body>
@@ -794,7 +35,7 @@
         <div class="content">
             <section id="clothing" class="list-section">
                 <div style="text-align: center;">
-                    <img src="https://cdn.discordapp.com/attachments/1226260557557141596/1226826392885399624/padnabuylogo.png?ex=66262e1d&is=6613b91d&hm=88a70133ffcbd54330d4daf6030980122bef141b492327b160f1b3761e12c0de&" alt="Logo" style="width: 350px;">
+                    <img class="center" src="../imgs/pandabuylogo.webp" alt="Logo" style="width: 350px;">
                 </div>
                 <ul class="list"></ul>   
             </section>
@@ -812,7 +53,7 @@
         {
                 category: 'shoe',
                 name: 'Basic Shirts [+26 Styles]',
-                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226830513818439722/tervtertve.png?ex=662631f3&is=6613bcf3&hm=8b1633870b8ce512311b9e391e68cafec3092fe24dfa76c2f876104610756131&',
+                picture: '../imgs/basicshirts.webp',
                 price: '2.64€',
                 qcPictures: 'https://qc.pandabuy.com/qc?g=599269056085&s=4183558776472&t=0',
                 buyLink: 'https://www.pandabuy.com/product?ra=140&url=https%3A%2F%2Fitem.taobao.com%2Fitem.htm%3Fid%3D599269056085&utm_source=aff&utm_medium=pdb&utm_campaign=normal&inviteCode=82V6R94BY'
@@ -820,7 +61,7 @@
             {
                 category: 'shoe',
                 name: 'Polo Ralph Lauren Shirt [+9 Styles]',
-                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226829467876458526/tshirt.png?ex=662630fa&is=6613bbfa&hm=8cd06863dab1dc12c93f52c10bf3c9d349a83f0493cf9568168185a2e9bb786e&',
+                picture: '../imgs/poloralphlaurenshirt.webp',
                 price: '7.63€',
                 qcPictures: 'https://qc.pandabuy.com/qc?g=676262192057&s=5032246398057&t=0',
                 buyLink: 'https://www.pandabuy.com/product?url=https%3A%2F%2Fitem.taobao.com%2Fitem.htm%3Fid%3D676262192057&inviteCode=82V6R94BY'
@@ -828,7 +69,7 @@
             {
                 category: 'shoe',
                 name: 'Dennis Rodman Shirt [+9 Styles]',
-                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226830942061203466/wertvertv.png?ex=6626325a&is=6613bd5a&hm=fb43a1d67c8c5f54d953c48cecdbaa2f0c1c8f2611f9b178e07c0c996a03b6b2&',
+                picture: '../imgs/dennisrodmanshirt.webp',
                 price: '13.31€',
                 qcPictures: 'https://qc.pandabuy.com/qc?g=672907223704&s=5011860102120&t=0',
                 buyLink: 'https://www.pandabuy.com/product?url=https%3A%2F%2Fitem.taobao.com%2Fitem.htm%3Fid%3D672907223704&utm_source=sal&utm_medium=pdb&utm_campaign=normal&inviteCode=82V6R94BY'
@@ -836,7 +77,7 @@
             {
                 category: 'shoe',
                 name: 'Sp5der Halo Shirt',
-                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226831254800830495/we5vweq5r.png?ex=662632a4&is=6613bda4&hm=1c1aec143954edee87ed9ec40cbacef460a41a43590315e0d5a557016a172214&',
+                picture: '../imgs/spiderhaloshirt.webp',
                 price: '13.59€',
                 qcPictures: 'https://qc.pandabuy.com/qc?g=717215266987&s=5175901614655&t=0',
                 buyLink: 'https://www.pandabuy.com/product?url=https%3A%2F%2Fitem.taobao.com%2Fitem.htm%3Fid%3D717215266987&inviteCode=82V6R94BY'
@@ -844,7 +85,7 @@
             {
                 category: 'shoe',
                 name: 'Represent Shirt [+12 Styles] ',
-                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226831569155657728/645b3767.png?ex=662632ef&is=6613bdef&hm=a65357c00596869be21c81c2a7d6c611f43b5a6797863e34285ee2a8189a0ae9&',
+                picture: '../imgs/representshirt.webp',
                 price: '15.95€',
                 qcPictures: 'https://qc.pandabuy.com/qc?g=713339086930&s=5191209774416&t=0',
                 buyLink: 'https://www.pandabuy.com/product?url=https%3A%2F%2Fitem.taobao.com%2Fitem.htm%3Fid%3D713339086930&utm_source=sal&utm_medium=pdb&utm_campaign=normal&inviteCode=82V6R94BY'
@@ -852,7 +93,7 @@
             {
                 category: 'shoe',
                 name: 'Vlone x PopSmoke Tee',
-                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226831848525529108/ewetvert.png?ex=66263332&is=6613be32&hm=2d79cb8dba7ea61302c4e681a75937e0357291c469b3389c6261e6c4fa01c117&',
+                picture: '../imgs/vlonexpopsmoketee.webp',
                 price: '22.05€',
                 qcPictures: 'https://qc.pandabuy.com/qc?g=650235393596&s=4864404203255&t=0',
                 buyLink: 'https://www.pandabuy.com/product?ra=158&url=https%3A%2F%2Fitem.taobao.com%2Fitem.htm%3Fid%3D650235393596&utm_source=url&utm_medium=pdb&utm_campaign=normal&inviteCode=82V6R94BY'
@@ -860,7 +101,7 @@
             {
                 category: 'shoe',
                 name: 'Vlone x Juice Wrld',
-                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226832083465404416/124v234c.png?ex=6626336a&is=6613be6a&hm=04dd759521530da5c4a3a10336f5180cd1cc8ddd358214da7bae4a495b5e8fb1&',
+                picture: '../imgs/vlonexjuicewrld.webp',
                 price: '19.28€',
                 qcPictures: 'https://qc.pandabuy.com/qc?g=640304074681&s=4770802499969&t=0',
                 buyLink: 'https://www.pandabuy.com/product?url=https%3A%2F%2Fitem.taobao.com%2Fitem.htm%3Fid%3D640304074681&utm_source=sto&utm_medium=pdb&utm_campaign=normal&inviteCode=82V6R94BY'
@@ -868,7 +109,7 @@
             {
                 category: 'shoe',
                 name: 'Vlone x YoungBoy [+2 Styles]',
-                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226832279561830472/wercewqrer.png?ex=66263398&is=6613be98&hm=5a0413627ba6bc01035ae24d49a146b7e63b8e7509040b312a506b823552bf02&',
+                picture: '../imgs/vlonexyoungboy.webp',
                 price: '20.67€',
                 qcPictures: 'https://qc.pandabuy.com/qc?g=633320459838&s=4687772590555&t=0',
                 buyLink: 'https://www.pandabuy.com/product?url=https%3A%2F%2Fitem.taobao.com%2Fitem.htm%3Fid%3D633320459838&utm_source=sto&utm_medium=pdb&utm_campaign=normal&inviteCode=82V6R94BY'
@@ -876,7 +117,7 @@
             {
                 category: 'shoe',
                 name: 'Polo Ralph Lauren [+29 Styles]',
-                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226832617937309696/23c4234c.png?ex=662633e9&is=6613bee9&hm=b1a9fa5b111cfe4ed321d96688046c80bba82145fbb51ee7e6e29237d83ac889&',
+                picture: '../imgs/poloralphlauren.webp',
                 price: '11.79€',
                 qcPictures: 'https://qc.pandabuy.com/qc?g=710444688840&s=5152892902612&t=0',
                 buyLink: 'https://www.pandabuy.com/product?url=https%3A%2F%2Fitem.taobao.com%2Fitem.htm%3Fid%3D710444688840&utm_source=pop&utm_medium=pdb&utm_campaign=normal&inviteCode=82V6R94BY'
@@ -884,7 +125,7 @@
             {
                 category: 'shoe',
                 name: 'Aime Leon Dore Shirt [+3 Styles]',
-                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226833193777369128/weqrc_wer.png?ex=66263472&is=6613bf72&hm=9688559ae2b2edfd14e9c14e52f705386d8578ca12903489570f1690cf0b33aa&',
+                picture: '../imgs/aimeleondoreshirt.webp',
                 price: '13.18€',
                 qcPictures: 'https://qc.pandabuy.com/qc?g=718266339504&s=5054940472034&t=0',
                 buyLink: 'https://www.pandabuy.com/product?url=https%3A%2F%2Fitem.taobao.com%2Fitem.htm%3Fid%3D718266339504&inviteCode=82V6R94BY'
@@ -892,7 +133,7 @@
             {
                 category: 'shoe',
                 name: 'Balenciaga Distressed Shirt',
-                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226833909199671358/werc_wer.png?ex=6626351d&is=6613c01d&hm=a1bbd6a1ac654583f0f7ca19cabd80d56c86c4c80d9023f0f4dd64d1505c82ed&',
+                picture: '../imgs/balenciagadistressedshirt.webp',
                 price: '40.22€',
                 qcPictures: 'https://qc.pandabuy.com/qc?g=4726937401&s=58078636162&t=0',
                 buyLink: 'https://www.pandabuy.com/product?url=https%3A%2F%2Fweidian.com%2Fitem.html%3FitemID%3D4726937401%26spider_token%3D4572&utm_source=sto&utm_medium=pdb&utm_campaign=normal&inviteCode=82V6R94BY'
@@ -900,7 +141,7 @@
             {
                 category: 'shoe',
                 name: 'Amiri Shirt [+3 Styles]',
-                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226834537364062299/rwqcerewr.png?ex=662635b3&is=6613c0b3&hm=6a8f03c10555ac0d8d94eec83beaf8fd7bd84c21306a75db4a3a21141aa01cd7&',
+                picture: '../imgs/amirishirt.webp',
                 price: '11.79€',
                 qcPictures: 'https://qc.pandabuy.com/qc?g=700546484741&s=4958691589683&t=0',
                 buyLink: 'https://www.pandabuy.com/product?ra=827&url=https%3A%2F%2Fitem.taobao.com%2Fitem.htm%3Fid%3D700546484741&utm_source=url&utm_medium=pdb&utm_campaign=normal&inviteCode=82V6R94BY'
@@ -908,7 +149,7 @@
             {
                 category: 'shoe',
                 name: 'Essentials Shirt  [+10 Styles]',
-                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226835068278935693/weqrcwer.png?ex=66263631&is=6613c131&hm=ecdde810776aa02354184fc6bd5c190df07608cdd93316044e89449364f82077&',
+                picture: '../imgs/essentialsshirt.webp',
                 price: '10.96€',
                 qcPictures: 'https://qc.pandabuy.com/qc?g=631063899364&s=5494564667721&t=0',
                 buyLink: 'https://www.pandabuy.com/product?url=https%3A%2F%2Fitem.taobao.com%2Fitem.htm%3Fid%3D631063899364&utm_source=aff&utm_medium=pdb&utm_campaign=normal&inviteCode=82V6R94BY'
@@ -916,7 +157,7 @@
             {
                 category: 'shoe',
                 name: 'Dior Oblique Shirt [+3 Styles]',
-                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226836727667363931/wqervwqer.png?ex=662637bd&is=6613c2bd&hm=cad621f7fe2887c0e5553e8c924b1e906153d93637124aef9c0d839999edfb29&',
+                picture: '../imgs/diorobliqueshirt.webp',
                 price: '31.76€',
                 qcPictures: 'https://qc.pandabuy.com/qc?g=6054435794&s=93793926629&t=0',
                 buyLink: 'https://www.pandabuy.com/product?ra=923&url=https%3A%2F%2Fweidian.com%2Fitem.html%3FitemID%3D6054435794%26spider_token%3D4572&utm_source=url&utm_medium=pdb&utm_campaign=normal&inviteCode=82V6R94BY'
@@ -924,7 +165,7 @@
             {
                 category: 'shoe',
                 name: 'Moncler Shirt [+3 Styles]',
-                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226837177325977693/wevqrwer.png?ex=66263828&is=6613c328&hm=7eb7d747d7bccbbeb7f6d402194f42fa30c6a801804540177acd64ea9fa9711b&',
+                picture: '../imgs/monclershirt.webp',
                 price: '14.56€',
                 qcPictures: 'https://qc.pandabuy.com/qc?g=672757093594&s=4846832993404&t=0',
                 buyLink: 'https://www.pandabuy.com/product?ra=909&url=https%3A%2F%2Fdetail.tmall.com%2Fitem.htm%3Fid%3D672757093594&utm_source=url&utm_medium=pdb&utm_campaign=normal&inviteCode=82V6R94BY'
@@ -932,7 +173,7 @@
             {
                 category: 'shoe',
                 name: 'Nike Shirt [+6 Styles]',
-                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226837580411306004/wervwerv.png?ex=66263888&is=6613c388&hm=d68ff505b874982d4fa9871e888f50ba711b39fd8c10b272b450ebcf9d2f746c&',
+                picture: '../imgs/nikeshirt.webp',
                 price: '12.76€',
                 qcPictures: 'https://qc.pandabuy.com/qc?g=698744145419&s=5271006090624&t=0',
                 buyLink: 'https://www.pandabuy.com/product?url=https%3A%2F%2Fitem.taobao.com%2Fitem.htm%3Fid%3D698744145419&inviteCode=82V6R94BY'
@@ -940,7 +181,7 @@
             {
                 category: 'shoe',
                 name: 'Nigo Vintage Shirt',
-                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226839386130485309/qweqwe.png?ex=66263a37&is=6613c537&hm=9a95cbc98a936ca416c9d3d26ab394599b4fce83c981cc4b4af110e09e15c4c9&',
+                picture: '../imgs/nigovintageshirt.webp',
                 price: '12.34€',
                 qcPictures: 'https://qc.pandabuy.com/qc?g=641450088607&s=4785227190034&t=0',
                 buyLink: 'https://www.pandabuy.com/product?ra=213&url=https%3A%2F%2Fdetail.tmall.com%2Fitem.htm%3Fid%3D641450088607&utm_source=aff&utm_medium=pdb&utm_campaign=normal&inviteCode=82V6R94BY'
@@ -948,7 +189,7 @@
             {
                 category: 'shoe',
                 name: 'Palm Angels Island [+2 Styles]',
-                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226839934829068369/ert6ertert.png?ex=66263aba&is=6613c5ba&hm=0bf5ee62342407b7e52ff8bf19982c5f00b77d44f771772cce60a896807880a5&',
+                picture: '../imgs/palmangelsisland.webp',
                 price: '6.80€',
                 qcPictures: 'https://qc.pandabuy.com/qc?g=640486865363&s=4598959888933&t=0',
                 buyLink: 'https://www.pandabuy.com/product?ra=53&url=https%3A%2F%2Fdetail.1688.com%2Foffer%2F640486865363.html&utm_source=url&utm_medium=pdb&utm_campaign=normal&inviteCode=82V6R94BY'
@@ -956,7 +197,7 @@
             {
                 category: 'shoe',
                 name: 'Stone Island Tee [+10 Styles]',
-                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226840284156137472/erwerwer.png?ex=66263b0d&is=6613c60d&hm=cb42d2888bd08e555dac5f9b3dda83473a48376ac888d61694a09cb8c26cc385&',
+                picture: '../imgs/stoneislandtee.webp',
                 price: '19.42€',
                 qcPictures: 'https://qc.pandabuy.com/qc?g=656026197214&s=5291708967599&t=0',
                 buyLink: 'https://www.pandabuy.com/product?url=https%3A%2F%2Fitem.taobao.com%2Fitem.htm%3Fid%3D656026197214&inviteCode=82V6R94BY'
@@ -964,7 +205,7 @@
             {
                 category: 'shoe',
                 name: 'Vivienne Westhood [+4 Styles]',
-                picture: 'https://cdn.discordapp.com/attachments/1226260557557141596/1226840574150181005/123xc123.png?ex=66263b52&is=6613c652&hm=e44017e554f9daf3e476ef9489271f3d9745cd44e679e5dcff76aee55d19de26&',
+                picture: '../imgs/viviennewesthood.webp',
                 price: '9.57€',
                 qcPictures: 'https://qc.pandabuy.com/qc?g=672457037879&s=4844768869997&t=0',
                 buyLink: 'https://www.pandabuy.com/product?url=https%3A%2F%2Fitem.taobao.com%2Fitem.htm%3Fid%3D672457037879&utm_source=pop&utm_medium=pdb&utm_campaign=normal&inviteCode=82V6R94BY'

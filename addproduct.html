@@ -235,7 +235,7 @@ form {
     <main>
         <div class="content">
             <section id="clothing" class="list-section">
-                <h2>Add Product</h2>
+                <h2>Request Product</h2>
                 <h5>Please provide all the information below to send a product from your site to us. We will review the product as quickly as possible and decide whether the product will be added to the site. Thank you for your help in improving <span class="highlight">verve-panda.de</span>!</h5>
                 <form id="productForm">
                     <select id="category" name="category">
@@ -361,15 +361,11 @@ form {
         alert('Please fill all fields before submitting the form.');
         return;
     }
-
-            // Collect the data from the form
             var category = document.getElementById('category').value;
             var name = document.getElementById('name').value;
             var picture = document.getElementById('picture').value;
             var price = document.getElementById('price').value;
             var qcPictures = document.getElementById('qcPictures').value;
-
-            // Create the data object
             var data = {
                 'category': category,
                 'name': name,
@@ -378,13 +374,8 @@ form {
                 'qcPictures': qcPictures
             };
 
-            // Convert the data object into a string
             var dataString = JSON.stringify(data, null, 2);
-
-            // Add the quotes to create a code block
             var message = "```\n" + dataString + "\n```";
-
-            // Replace this with your Discord webhook URL
             var webhookUrl = 'https://discord.com/api/webhooks/1227314394598473801/kxJYygFF8CEDQJdn7m4F9e8lhU9uhlvlYIxda96urzKFnJ34EMUdlK8dxzQo0xPmD6a-';
 
             fetch(webhookUrl, {
@@ -397,10 +388,8 @@ form {
         })
     }).then(function(response) {
         if (response.ok) {
-            // If the data was successfully sent, redirect to the confirmation page
             window.location.href = 'confirmed.html';
         } else {
-            // If an error occurred, show an error message
             alert('There was an error sending the data. Please try again.');
         }
     });
